@@ -3,12 +3,26 @@ set $mod Mod4
 
 font pango:monospace 8
 
+# gaps
+gaps inner 10
+gaps top 35
+gaps bottom 0
+gaps left 0
+gaps right 0
+
+# Borders
+smart_borders on
+set $borderSize 2
+for_window [class=".*"] border pixel $borderSize
+
 exec --no-startup-id setxkbmap -layout fr,us
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id gnome-keyring-daemon --start
+
+exec_always --no-startup-id ~/.config/polybar/start.sh
 
 # NetworkManager
 exec --no-startup-id nm-applet
