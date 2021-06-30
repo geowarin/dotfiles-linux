@@ -5,7 +5,7 @@ font pango:monospace 8
 
 # gaps
 gaps inner 10
-gaps top 35
+gaps top 0
 gaps bottom 0
 gaps left 0
 gaps right 0
@@ -21,8 +21,10 @@ exec --no-startup-id setxkbmap -layout fr,us
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id gnome-keyring-daemon --start
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-exec_always --no-startup-id ~/.config/polybar/start.sh
+
+# exec_always --no-startup-id ~/.config/polybar/start.sh
 
 # NetworkManager
 exec --no-startup-id nm-applet
@@ -141,7 +143,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec ~/.config/rofi/powermenu.sh
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -175,3 +177,19 @@ bindsym $mod+r mode "resize"
 # bar {
 #         status_command i3status
 # }
+bar {
+        colors {
+		# Type             border  background font
+		focused_workspace  #008fff #007fff #ffffff
+		active_workspace   #333333 #5f676a #ffffff
+		inactive_workspace #333333 #222222 #888888
+		urgent_workspace   #aa0000 #990000 #ffffff
+	}
+	font pango:Inconsolata 10
+	position top
+        workspace_min_width 40
+	#tray_output none
+	status_command bumblebee-status -m cpu arch-update nic layout date time \
+		-p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
+		-t iceberg-powerline
+}
