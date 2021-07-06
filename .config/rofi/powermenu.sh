@@ -56,25 +56,25 @@ options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 
 chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 2)"
 case $chosen in
-    $shutdown)
+    "$shutdown")
 		systemctl poweroff
         ;;
-    $reboot)
+    "$reboot")
 		systemctl reboot
         ;;
-    $lock)
+    "$lock")
 		if [[ -f /usr/bin/i3lock ]]; then
 			i3lock
 		elif [[ -f /usr/bin/betterlockscreen ]]; then
 			betterlockscreen -l
 		fi
         ;;
-    $suspend)
+    "$suspend")
 		mpc -q pause
 		amixer set Master mute
 		systemctl suspend
         ;;
-    $logout)
+    "$logout")
 		i3-msg exit
 		;;
 esac
