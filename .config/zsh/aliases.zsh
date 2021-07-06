@@ -28,6 +28,7 @@ alias reload="exec $SHELL -l"
 
 # dotfiles
 alias df='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias dfe='GIT_DIR=$HOME/dotfiles/ GIT_WORK_TREE=$HOME $EDITOR $HOME/.config'
 
 alias pstree="ps --user $(id -u) f"
 
