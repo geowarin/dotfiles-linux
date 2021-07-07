@@ -1,16 +1,10 @@
 [core]
-modules = title, arch-update, datetime, layout, dunstctl
+modules = title, pomodoro, arch-update, datetime, layout, dunstctl
 # modules = bluetooth2, nvidiagpu
-theme = nord-powerline
+theme = bearded-arc-powerline
 
 [module-parameters]
 datetime.format=%a %d %b %Y %H:%M
-datetime.locale=fr_FR.UTF-8
+# datetime.locale=fr_FR.UTF-8
 arch-update.left-click=kitty --detach sh -c "checkupdates; echo Press ENTER to quit; read"
-; title.makewide=42
-; title.theme.align=center
-; title.minwidth=100.00%
 
-; -m cpu arch-update nic layout date time \
-; 		-p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
-; 		-t iceberg-powerline
