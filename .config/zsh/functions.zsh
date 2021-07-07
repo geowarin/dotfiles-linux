@@ -11,15 +11,15 @@ bgh() {
 
 # list installed packages
 pacls() {
-	pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
+	pacman -Qq | fzf -q "$@" --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
 }
 
 # list all packages and installs selected
 pacfind () {
-	paru -Sl | fzf --multi --preview 'paru -Si {2}' | cut -d " " -f 2 | xargs -ro paru -S
+	paru -Sl | fzf -q "$@" --multi --preview 'paru -Si {2}' | cut -d " " -f 2 | xargs -ro paru -S
 }
 
 # list all packages and removes selected
 pacremove() {
-	pacman -Qq | fzf -m --preview "pacman -Qil {}" --layout=reverse  | xargs -ro sudo pacman -Rsn
+	pacman -Qq | fzf -q "$@" -m --preview "pacman -Qil {}" --layout=reverse  | xargs -ro sudo pacman -Rsn
 }
