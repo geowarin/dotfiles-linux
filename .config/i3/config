@@ -180,12 +180,12 @@ bindsym $mod+r mode "resize"
 # }
 bar {
         colors {
-                background #263238
+                background #1c2433
 		# Type             border  background font
-		focused_workspace  #008fff #007fff #ffffff
-		active_workspace   #333333 #5f676a #ffffff
-		inactive_workspace #333333 #222222 #888888
-		urgent_workspace   #aa0000 #990000 #ffffff
+		focused_workspace  #008fff #007fff #c3cfd9
+		active_workspace   #1c2433 #1c2433 #c3cfd9
+		inactive_workspace #111721 #1c2433 #888888
+		urgent_workspace   #e35535 #e35535 #c3cfd9
 	}
 	# font pango:Inconsolata 10
 	position top
