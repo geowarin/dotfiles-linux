@@ -63,11 +63,7 @@ case $chosen in
 		systemctl reboot
         ;;
     "$lock")
-		if [[ -f /usr/bin/i3lock ]]; then
-			i3lock
-		elif [[ -f /usr/bin/betterlockscreen ]]; then
-			betterlockscreen -l
-		fi
+		betterlockscreen -l blur
         ;;
     "$suspend")
 		mpc -q pause
