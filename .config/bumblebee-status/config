@@ -1,5 +1,5 @@
 [core]
-modules = title, pomodoro, arch-update, datetime, layout, dunstctl
+modules = title, pomodoro, arch-update, github, datetime, layout, dunstctl
 # modules = bluetooth2, nvidiagpu, pulseaudio,
 theme = bearded-arc-powerline
 

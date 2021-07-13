@@ -23,6 +23,15 @@ if command -v hub >/dev/null 2>&1; then
 	alias git="hub"
 fi
 
+if command -v bat >/dev/null 2>&1; then
+	alias cat="bat"
+fi
+
+if command -v exa >/dev/null 2>&1; then
+	alias ls="exa --icons"
+fi
+
+
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
 

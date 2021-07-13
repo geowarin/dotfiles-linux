@@ -2,12 +2,12 @@
     "git.ignoreLimitWarning": true,
     "git.untrackedChanges": "hidden",
     "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
         "bitw/": true,
         "Bitwarden CLI/": true,
-    }
+    },
+    "files.associations": {
+        "**/.i3/config": "i3",
+        "**/i3/config": "i3",
+        "**/bumblebee-status/config": "ini"
+    },
 }

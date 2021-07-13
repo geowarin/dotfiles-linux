@@ -30,7 +30,7 @@ exec --no-startup-id greenclip daemon
 
 exec --no-startup-id ~/.config/picom/start.sh
 exec --no-startup-id nitrogen --restore
-exec autotiling
+exec --no-startup-id autotiling
 
 # NetworkManager
 exec --no-startup-id nm-applet
@@ -196,7 +196,7 @@ bar {
 	position top
   workspace_min_width 40
 	#tray_output none
-	status_command bumblebee-status
+	status_command bumblebee-status -p github.token="${GH_NOTIF_TOKEN}"
 }
 
 # Shortcuts
@@ -224,3 +224,5 @@ bindsym $mod+Shift+v exec rofi -modi "clipboard:greenclip print" -show clipboard
 # https://aduros.com/blog/hacking-i3-window-promoting/
 # requires community/python-i3ipc
 bindsym $mod+p exec --no-startup-id ~/.config/i3/promote-window.py
+
+# https://github.com/moustacheful/glint
