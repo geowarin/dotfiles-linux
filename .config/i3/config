@@ -30,7 +30,7 @@ exec --no-startup-id greenclip daemon
 
 exec --no-startup-id ~/.config/picom/start.sh
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id autotiling
+exec_always --no-startup-id autotiling >error.log 2>&1
 
 # NetworkManager
 exec --no-startup-id nm-applet
@@ -57,6 +57,7 @@ bindsym $mod+Return exec kitty -1
 # toggle tiling / floating
 bindsym $mod+space floating toggle
 bindsym $mod+f fullscreen toggle
+bindsym $mod+t layout toggle tabbed split
 
 # change container layout (stacked, tabbed, toggle split)
 # bindsym $mod+s layout stacking
