@@ -15,5 +15,7 @@
     "telemetry.enableCrashReporter": false,
     "editor.minimap.enabled": false,
     "workbench.activityBar.visible": false,
-    "files.simpleDialog.enable": true
+    "files.simpleDialog.enable": true,
+    "git.enableSmartCommit": true,
+    "git.autofetch": "all",
 }

@@ -54,5 +54,30 @@
     {
         "key": "ctrl+k ctrl+o",
         "command": "-workbench.action.files.openFolder"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "-editor.action.codeAction",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+right",
+        "command": "cursorWordPartRight",
+        "when": "textInputFocus"
+      },
+      {
+        "key": "ctrl+shift+right",
+        "command": "cursorWordPartRightSelect",
+        "when": "textInputFocus"
+      },
+      {
+        "key": "ctrl+left",
+        "command": "cursorWordPartLeft",
+        "when": "textInputFocus"
+      },
+      {
+        "key": "ctrl+shift+left",
+        "command": "cursorWordPartLeftSelect",
+        "when": "textInputFocus"
     }
 ]
