@@ -17,7 +17,7 @@
 
 theme="full_circle"
 # dir="$HOME/.config/rofi/powermenu"
-dir="/usr/share/rofi/1080p/powermenu"
+dir="/home/geo/dev/rofi-themes/powermenu"
 
 
 # themeIndex=${1:-"$RANDOM % 24"}
@@ -57,20 +57,20 @@ options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 2)"
 case $chosen in
     "$shutdown")
-		systemctl poweroff
-        ;;
+		  systemctl poweroff
+      ;;
     "$reboot")
-		systemctl reboot
-        ;;
+		  systemctl reboot
+      ;;
     "$lock")
-		betterlockscreen -l blur
-        ;;
+		  betterlockscreen -l blur
+      ;;
     "$suspend")
-		mpc -q pause
-		amixer set Master mute
-		systemctl suspend
-        ;;
+      mpc -q pause
+      amixer set Master mute
+      systemctl suspend
+      ;;
     "$logout")
-		i3-msg exit
-		;;
+      i3-msg exit
+      ;;
 esac

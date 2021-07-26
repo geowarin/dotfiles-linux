@@ -5,7 +5,7 @@ theme="${2:-style_1.rasi}"
 color="${3:-#42A5F5ff}"
 
 # dir="$HOME/.config/rofi/launchers/colorful"
-dir="/usr/share/rofi/1080p/launchers/$mode/"
+dir="/home/geo/dev/rofi-themes/launchers/$mode/"
 
 # dark
 ALPHA="#00000000"

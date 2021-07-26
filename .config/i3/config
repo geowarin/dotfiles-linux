@@ -1,7 +1,7 @@
 
 set $mod Mod4
 
-# font pango:monospace 11
+font pango:monospace 11
 
 # gaps
 gaps inner 10
@@ -218,6 +218,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec ~/.config/rofi/bin/launcher.sh
 bindsym $mod+Shift+e exec ~/.config/rofi/bin/powermenu.sh
 bindsym $mod+o exec rofi -show window
+# search in window and last commands
+#bindsym $mod+q exec --no-startup-id "rofi -combi-modi window,drun -show combi -modi combi"
 
 # App shortcuts
 bindsym $mod+w exec "/usr/bin/firefox"

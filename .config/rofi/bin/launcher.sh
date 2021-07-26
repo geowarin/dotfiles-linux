@@ -16,8 +16,8 @@
 # gnome_do  slingshot       appdrawer           appdrawer_alt   appfolder
 # column    row             row_center          screen          row_dock        row_dropdown
 
-/home/geo/.config/rofi/launcher.sh misc blurry.rasi
-
+# /home/geo/.config/rofi/launcher.sh misc kde_simplemenu.rasi
+rofi -no-lazy-grab -show drun -modi drun -theme launcher
 
 # --- SLATE
 # slate_full     slate_center     slate_left
