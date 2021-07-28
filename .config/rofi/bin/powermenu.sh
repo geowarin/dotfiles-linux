@@ -16,13 +16,13 @@ uptime=$(uptime -p | sed -e 's/up //g')
 chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 2)"
 case $chosen in
     "$shutdown")
-		  systemctl poweroff
+      systemctl poweroff
       ;;
     "$reboot")
-		  systemctl reboot
+      systemctl reboot
       ;;
     "$lock")
-		  betterlockscreen -l blur
+      betterlockscreen -l blur
       ;;
     "$suspend")
       # mpc -q pause

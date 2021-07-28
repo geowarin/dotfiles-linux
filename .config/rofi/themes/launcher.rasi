@@ -1,32 +1,32 @@
 
 configuration {
-	modi: "drun";
-	show-icons: true;
-	line-padding: 4;
-    display-drun: "";
+  modi: "drun";
+  show-icons: true;
+  line-padding: 4;
+  display-drun: "";
 }
 
 entry {
-    placeholder: "Search";
+  placeholder: "Search";
 }
 
 listview {
-    columns: 5;
-    lines: 3;
-	scrollbar: false;
+  columns: 5;
+  lines: 3;
+  scrollbar: false;
 }
 
 element {
-    orientation: vertical;
-    border-radius: 0%;
-    padding: 2% 0% 2% 0%;
+  orientation: vertical;
+  border-radius: 0%;
+  padding: 2% 0% 2% 0%;
 }
 
 element-icon {
-    size: 64px;
+  size: 64px;
 }
  
 element-text {
-    horizontal-align: 0.5;
-    vertical-align: 0.5;
+  horizontal-align: 0.5;
+  vertical-align: 0.5;
 }

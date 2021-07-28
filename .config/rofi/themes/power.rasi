@@ -1,56 +1,56 @@
 
 window {
-    transparency:                   "real";
-    height:                         42ch;
-    width:                          116ch;
+  transparency: "real";
+  height:       42ch;
+  width:        116ch;
 }
 mainbox {
-    spacing:                        9ch;
-    padding:                        4ch 0 0 6ch;
+  spacing:    9ch;
+  padding:    4ch 0 0 6ch;
 }
 listview {
-    layout:                         horizontal;
-    spacing:                        6ch;
+  layout:     horizontal;
+  spacing:    6ch;
 }
 element-text {
-	font:							"JetBrainsMono Nerd Font 32";
-    expand:                         false;
-    /* margin: 1ch 3ch 4ch 2ch; */
-    margin: 5ch 7ch 8ch 6ch;
+  font:	      "JetBrainsMono Nerd Font 32";
+  expand:     false;
+  /* margin: 1ch 3ch 4ch 2ch; */
+  margin:     5ch 7ch 8ch 6ch;
 }
 
 inputbar {
-	children: 						[ textbox-prompt-colon, prompt ];
-    expand:                         false;
-    
-    border:                  		0% 0.2% 0.2% 0%;
-    border-radius:                  0% 100% 100% 100%;
-    border-color:                  	@selected-active-background;
+  children:   [ textbox-prompt-colon, prompt ];
+  expand:     false;
+  
+  border:         0% 0.2% 0.2% 0%;
+  border-radius:  0% 100% 100% 100%;
+  border-color:  	@selected-active-background;
 
-    margin:                         0% 21.3% 0% 0%;
-    padding:                        0.5%;
-    position:                       center;
+  margin:         0% 21.3% 0% 0%;
+  padding:        0.5%;
+  position:       center;
 }
 prompt {
-    enabled: 						true;
-    padding:                        0.5% 0.5% 0.5% 0%;
+  enabled:        true;
+  padding:        0.5% 0.5% 0.5% 0%;
 }
 textbox-prompt-colon {
-	expand: 						false;
-	str: 							"System |";
-    padding:                        0.5% 0.5% 0.5% 0%;
+  expand:         false;
+  str:            "System |";
+  padding:        0.5% 0.5% 0.5% 0%;
 }
 
 element {
-    orientation:                    horizontal;
-    border-radius:                  100%;
+  orientation:    horizontal;
+  border-radius:  100%;
 }
 element.normal.normal {
-    background-color: @lightbg;
+  background-color: @lightbg;
 }
 element.alternate.normal {
-    background-color: @lightbg;
+  background-color: @lightbg;
 }
 element.selected.normal {
-    background-color: @selected-active-background;
+  background-color: @selected-active-background;
 }
