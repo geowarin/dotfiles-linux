@@ -7,6 +7,9 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "lib/key-bindings", from:oh-my-zsh
 zplug "lib/completion", from:oh-my-zsh
 
+# requires pkgfile
+zplug "plugins/command-not-found", from:oh-my-zsh
+
 # Press esc-esc to add sudo to the previous command
 zplug "hcgraf/zsh-sudo"
 

@@ -1,7 +1,6 @@
 
 configuration {
 	modi: "drun";
-	font: "JetBrainsMono Nerd Font 10";
 	show-icons: true;
 	line-padding: 4;
     display-drun: "";
@@ -11,24 +10,10 @@ entry {
     placeholder: "Search";
 }
 
-/* listview {
-    columns: 5;
-} */
-
-/* listview {
-    columns: 5;
-    lines: 3;
-    layout: vertical;
-
-
-    padding: 10;
-	scrollbar: false;
-    fixed-columns: true;
-} */
-
 listview {
     columns: 5;
     lines: 3;
+	scrollbar: false;
 }
 
 element {

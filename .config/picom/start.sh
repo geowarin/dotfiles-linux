@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-echo "toto" > ~/.cache/picom.log
+# This should work anywhere
+picom --config ~/.config/picom/picom-virt.conf
 
-virt=$(systemd-detect-virt)
-if [[ -n $virt ]]; then
-    picom --config ~/.config/picom/picom-virt.conf
-else
-    picom --experimental-backends
-fi
+# Uncomment this for more visual effects
+# picom --experimental-backends

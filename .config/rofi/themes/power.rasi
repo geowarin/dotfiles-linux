@@ -1,65 +1,56 @@
 
 window {
     transparency:                   "real";
-    background-color:               @background;
-    text-color:                     @foreground;
-    border-radius:                  0px;
-    height:                         28.5%;
-    width:                          50%;
-    location:                       center;
-    x-offset:                       0;
-    y-offset:                       0;
+    height:                         42ch;
+    width:                          116ch;
 }
-
-prompt {
-    enabled: 						true;
-    padding:                        0.5% 0.5% 0.5% 0%;
-	background-color: 				@background-alt;
-	text-color: 					@foreground;
+mainbox {
+    spacing:                        9ch;
+    padding:                        4ch 0 0 6ch;
 }
-
-textbox-prompt-colon {
-	expand: 						false;
-	str: 							"System |";
-	background-color: 				@background-alt;
-	text-color: 					@foreground;
-    padding:                        0.5% 0.5% 0.5% 0%;
+listview {
+    layout:                         horizontal;
+    spacing:                        6ch;
+}
+element-text {
+	font:							"JetBrainsMono Nerd Font 32";
+    expand:                         false;
+    /* margin: 1ch 3ch 4ch 2ch; */
+    margin: 5ch 7ch 8ch 6ch;
 }
 
 inputbar {
 	children: 						[ textbox-prompt-colon, prompt ];
-    background-color:               @background-alt;
-    text-color:                     @foreground;
     expand:                         false;
+    
     border:                  		0% 0.2% 0.2% 0%;
     border-radius:                  0% 100% 100% 100%;
-    border-color:                  	@border;
+    border-color:                  	@selected-active-background;
+
     margin:                         0% 21.3% 0% 0%;
     padding:                        0.5%;
     position:                       center;
 }
-
-listview {
-    layout:                         horizontal;
-    spacing:                        2%;
+prompt {
+    enabled: 						true;
+    padding:                        0.5% 0.5% 0.5% 0%;
 }
-
-mainbox {
-    spacing:                        3.5%;
-    padding:                        4% 0% 0% 2%;
+textbox-prompt-colon {
+	expand: 						false;
+	str: 							"System |";
+    padding:                        0.5% 0.5% 0.5% 0%;
 }
 
 element {
-    background-color:               @background-alt;
-    text-color:                     @foreground;
     orientation:                    horizontal;
     border-radius:                  100%;
 }
-
-element-text {
-	font:							"feather 32";
-    expand:                         true;
-    horizontal-align:               0.5;
-    vertical-align:                 0.5;
-    margin:                         4.5% 2.7% 7.5% 2.7%;
+element.normal.normal {
+    background-color: @lightbg;
+}
+element.alternate.normal {
+    background-color: @lightbg;
+}
+element.selected.normal {
+    background-color: @selected-active-background;
 }

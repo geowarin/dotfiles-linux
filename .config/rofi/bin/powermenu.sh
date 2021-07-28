@@ -19,11 +19,11 @@
 rofi_command="rofi -theme power"
 
 # Options
-shutdown=""
-reboot=""
-lock=""
-suspend=""
-logout=""
+shutdown=""
+reboot=""
+lock=""
+suspend=""
+logout=""
 
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 
