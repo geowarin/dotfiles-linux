@@ -3,7 +3,7 @@ configuration {
   modi: "drun";
   show-icons: true;
   line-padding: 4;
-  display-drun: "";
+  display-drun: " ";
 }
 
 entry {

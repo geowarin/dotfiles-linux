@@ -25,7 +25,7 @@ inputbar {
   
   border:         0% 0.2% 0.2% 0%;
   border-radius:  0% 100% 100% 100%;
-  border-color:  	@selected-active-background;
+  border-color:   @selected-active-background;
 
   margin:         0% 21.3% 0% 0%;
   padding:        0.5%;

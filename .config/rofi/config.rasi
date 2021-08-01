@@ -2,8 +2,8 @@
 /* @import "/usr/share/rofi/themes/Arc-Dark.rasi" */
 
 configuration {
-  icon-theme:         "Papirus";
-	font:							  "JetBrainsMono Nerd Font 12";
+  icon-theme: "Papirus";
+  font:       "JetBrainsMono Nerd Font 12";
 }
 
 * {
