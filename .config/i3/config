@@ -202,12 +202,14 @@ bar {
 		inactive_workspace #111721 #1c2433 #888888
 		urgent_workspace   #e35535 #e35535 #c3cfd9
 	}
-	# font pango:Inconsolata 10
+	font pango:JetBrainsMono Nerd Font 11
 	position top
   workspace_min_width 40
 	tray_output primary
-	status_command bumblebee-status -p github.token="${GH_NOTIF_TOKEN}"
+	status_command i3status-rs
 }
+
+# for_window [floating] move absolute position center
 
 # Shortcuts
 

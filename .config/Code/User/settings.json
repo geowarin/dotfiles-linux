@@ -18,4 +18,8 @@
     "files.simpleDialog.enable": true,
     "git.enableSmartCommit": true,
     "git.autofetch": "all",
+    "update.mode": "none",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
 }
