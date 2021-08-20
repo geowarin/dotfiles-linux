@@ -25,3 +25,5 @@ sed -i '/^VerbosePkgLists$/ a ILoveCandy' /etc/pacman.conf
 sed -i '/\[multilib]$/ {
     N
     /Include/s/#//g}' /etc/pacman.conf
+
+pacman -Sy
