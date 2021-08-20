@@ -1,6 +1,6 @@
 #! /bin/bash
 
-sed -i '|^#GRUB_THEME.*|GRUB_THEME="/usr/share/grub/themes/poly-dark/theme.txt"|' /etc/default/grub
+sed -i 's|^#GRUB_THEME.*|GRUB_THEME="/usr/share/grub/themes/poly-dark/theme.txt"|' /etc/default/grub
 
 mkdir -p "$HOME/.config/nitrogen"
 
