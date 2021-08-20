@@ -22,4 +22,5 @@
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter.notebook.ipynb"
     },
+    "workbench.editor.untitled.hint": "hidden"
 }

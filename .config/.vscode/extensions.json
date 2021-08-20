@@ -7,6 +7,9 @@
         "k--kato.intellij-idea-keybindings",
         "ryuta46.multi-command",
         "csstools.postcss",
-        "timonwong.shellcheck"
+        "timonwong.shellcheck",
+        "bungcip.better-toml",
+        "dlasagno.rasi",
+        "cyanhall.close-git-unmodified"
     ]
 }
