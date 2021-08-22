@@ -1,0 +1,42 @@
+[global]
+    # (values: [none/mouse/keyboard] default: none)
+    #follow = keyboard
+
+    # format: [{width}][x{height}][+/-{x}[+/-{y}]], default: "0x0+0-0"
+    geometry = "300x50-10+30"
+
+    # default: 0
+    padding = 6
+    horizontal_padding = 10
+
+    font = "JetbrainsMono Nerd Font 9.5"
+
+    line_height = 3
+
+    # markup (values: [full/strip/no], default: no)
+    markup = full
+
+    # format (default: "%s %b")
+    format = "<b>%s</b>\n%b"
+
+    icon_position = left
+    max_icon_size = 32
+    icon_path = /usr/share/icons/Papirus-Dark/16x16/apps/:/usr/share/icons/Papirus-Dark/16x16/panel/
+
+    #transparency = 5
+    corner_radius = 8
+
+[urgency_low]
+    foreground = "#c3cfd9"
+    background = "#1c2433"
+    timeout = 4
+
+[urgency_normal]
+    foreground = "#c3cfd9"
+    background = "#1c2433"
+    timeout = 6
+
+[urgency_critical]
+    foreground = "#c3cfd9"
+    background = "#e35535"
+    timeout = 8
