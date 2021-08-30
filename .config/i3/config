@@ -28,7 +28,8 @@ focus_follows_mouse no
 # Press mod+num twice to go to ws and back
 workspace_auto_back_and_forth yes
 
-exec --no-startup-id setxkbmap -layout fr,us
+# Toggle modes: grep "grp:.*toggle" /usr/share/X11/xkb/rules/base.lst
+exec --no-startup-id setxkbmap -layout fr,us -option grp:sclk_toggle
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -42,7 +43,7 @@ exec --no-startup-id nitrogen --restore
 exec_always --no-startup-id autotiling >error.log 2>&1
 
 # NetworkManager
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -99,11 +100,11 @@ workspace $ws3 output primary
 workspace $ws4 output primary
 workspace $ws5 output primary
 
-workspace $ws6 output secondary
-workspace $ws7 output secondary
-workspace $ws8 output secondary
-workspace $ws9 output secondary
-workspace $ws10 output secondary
+workspace $ws6 output HDMI-0
+workspace $ws7 output HDMI-0
+workspace $ws8 output HDMI-0
+workspace $ws9 output HDMI-0
+workspace $ws10 output HDMI-0
 
 # change focus
 bindsym $mod+k focus up

@@ -44,3 +44,4 @@ alias pstree="ps --user $(id -u) f"
 # IDEs
 alias idea="bgh ${HOME}/bin/idea"
 alias clion="bgh ${HOME}/bin/clion"
+alias rider="bgh ${HOME}/bin/rider"

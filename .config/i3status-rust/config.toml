@@ -9,17 +9,17 @@ show_marks = "visible"
 [[block]]
 block = "pacman"
 interval = 600
-format = "{pacman} +{aur} = {both} updates"
+format = "{both} updates ({aur} aur )"
 format_singular = "{both} update"
-format_up_to_date = "system up to date"
+format_up_to_date = "up to date"
 critical_updates_regex = "(linux|linux-lts|linux-zen)"
 aur_command = "paru -Qua"
 on_click = "fakeroot pacman -Qu --dbpath /tmp/checkup-db-geo/ | rofi -dmenu"
 
-[[block]]
-block = "github"
-format = "{total}"
-on_click = "firefox https://github.com/notifications"
+# [[block]]
+# block = "github"
+# format = "{total}"
+# on_click = "firefox https://github.com/notifications"
 
 [[block]]
 block = "keyboard_layout"
@@ -30,6 +30,14 @@ interval = 15
 block = "time"
 interval = 5
 format = "%a %d/%m %R"
+
+[[block]]
+block = "sound"
+format = "{output_name} {volume}"
+[block.mappings]
+"alsa_output.pci-0000_00_1f.3.analog-stereo" = ""
+"alsa_output.pci-0000_01_00.1.hdmi-stereo" = ""
+"bluez_output.04_52_C7_7E_46_4C.a2dp-sink" = ""
 
 [[block]]
 block = "notify"

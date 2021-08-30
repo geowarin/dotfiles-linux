@@ -17,6 +17,10 @@ export EDITOR=code
 #export TERM=kitty
 export PAGER=less
 
+if command -v bat >/dev/null 2>&1; then
+    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+fi
+
 export _Z_DATA="$XDG_DATA_HOME"/z/data
 if [ ! -d $(dirname $_Z_DATA) ]; then mkdir -p $(dirname $_Z_DATA); fi
 
