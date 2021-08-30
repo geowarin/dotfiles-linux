@@ -1,3 +1,8 @@
+@import "../config"
+
+element-text {
+    text-color:       inherit;
+}
 
 window {
   transparency: "real";
@@ -16,7 +21,7 @@ element-text {
   font:	      "JetBrainsMono Nerd Font 32";
   expand:     false;
   /* margin: 1ch 3ch 4ch 2ch; */
-  margin:     5ch 7ch 8ch 6ch;
+  margin:     5ch 7ch 5ch 6ch;
 }
 
 inputbar {
