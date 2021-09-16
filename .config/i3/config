@@ -216,9 +216,9 @@ bar {
 	status_command i3status-rs
 }
 
-# for_window [name="TinyGLTF basic example"] no_focus
-# no_focus [title="TinyGLTF basic example"]
 for_window [class="gltf-viewer"] floating enable
+for_window [instance="Godot_Engine" title="\(DEBUG\)$"] floating enable
+for_window [title="^Steam - News"] kill
 
 # for_window [floating] move absolute position center
 

@@ -16,10 +16,10 @@ format_singular = "{both} update"
 format_up_to_date = "up to date"
 critical_updates_regex = "(linux|linux-lts|linux-zen)"
 aur_command = "paru -Qua"
-on_click = "fakeroot pacman -Qu --dbpath /tmp/checkup-db-geo/ | rofi -dmenu"
+on_click = "fakeroot paru -Qu --dbpath /tmp/checkup-db-geo/ | rofi -dmenu"
 
 # [[block]]
-# block = "github"
+# block = "github"localebus
 # format = "{total}"
 # on_click = "firefox https://github.com/notifications"
 
