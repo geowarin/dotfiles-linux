@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# xinput --list
+KEYBOARD_ID=10
+# ² - find with "xinput --test ID"
+BUTTON="key\[49\]"
+
+while true; do
+    if xinput --query-state "$KEYBOARD_ID" | grep -q "$BUTTON=down"
+    then
+        xdotool click 1
+    fi
+done

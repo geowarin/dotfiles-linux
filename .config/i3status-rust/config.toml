@@ -1,5 +1,7 @@
 theme = "nord-dark"
 icons = "awesome"
+# icons = "material-nf"
+# icons_format = " <span stretch='ultraexpanded'>{icon}</span> "
 
 [[block]]
 block = "focused_window"
@@ -24,7 +26,8 @@ on_click = "fakeroot pacman -Qu --dbpath /tmp/checkup-db-geo/ | rofi -dmenu"
 [[block]]
 block = "keyboard_layout"
 driver = "setxkbmap"
-interval = 15
+# driver = "localebus"
+# interval = 10
 
 [[block]]
 block = "time"

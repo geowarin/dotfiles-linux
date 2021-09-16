@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<unique-id>1630165675655443-1</unique-id>
+	<command>kitty -1 -d %f</command>
+	<description>Example for a custom action</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>blender</icon>
+	<name>blend to gltf</name>
+	<unique-id>1631320416075963-1</unique-id>
+	<command>for file in %F; do /home/geo/bin/blend-export &quot;$file&quot;; done</command>
+	<description></description>
+	<patterns>*.blend</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>edit-copy</icon>
+	<name>Copy Contents to Clipboard</name>
+	<unique-id>1631321447390155-1</unique-id>
+	<command>cat &quot;%F&quot; | xclip -i -selection clipboard</command>
+	<description>Copies the contents of the selected file to the clipboard.</description>
+	<patterns>*</patterns>
+	<text-files/>
+</action>
+<action>
+	<icon>go-up</icon>
+	<name>Flatten Folder</name>
+	<unique-id>1631321652343293-2</unique-id>
+	<command>find . -mindepth 2 -type f -exec mv &quot;{}&quot; . \; &amp;&amp; find . -type d -empty -delete</command>
+	<description>Moves all files from sub-folders to parent (current) folder, then removes all empty folders inside the current folder.</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>filename-underscore-amarok</icon>
+	<name>Slugify Filename</name>
+	<unique-id>1631321750692538-3</unique-id>
+	<command>for file in %N; do mv &quot;$file&quot; &quot;$(echo &quot;$file&quot; | tr -s &apos; &apos; | tr &apos; A-Z&apos; &apos;-a-z&apos; | tr -s &apos;-&apos; | tr -c &apos;[:alnum:][:cntrl:].&apos; &apos;-&apos;)&quot;; done</command>
+	<description>Rename the currently selected files, making the filenames lower-case &amp; replacing spaces with dashes.</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+</actions>

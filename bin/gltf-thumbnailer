@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# %u %o %i %s
+# %u: file:///home/geo/Documents/Game%20assets/kaykit-dungeon/Models/gltf/bookB.gltf.glb
+# %o: /tmp/tumbler-X0YBM90.png 
+# %i: /home/geo/Documents/Game assets/kaykit-dungeon/Models/gltf/bookB.gltf.glb
+# %s: 128
+input=$1
+output=$2
+size=$3
+
+/home/geo/bin/gltf-viewer -s "$output" -w "$size" -h "$size" "$input"
+# /home/geo/bin/gltf-viewer -s "$output" --headless "$input"
+#echo "${@}" >> /home/geo/bin/log.txt

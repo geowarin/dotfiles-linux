@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -x
+
+INPUT=$1
+#INPUT_EXT="${INPUT%.*}"
+# OUTPUT="$2"
+# OUTPUT_EXT="${OUTPUT%.*}"
+
+# export INPUT_FILE_PATH=$INPUT
+# export INPUT_FILE_FORMAT=$INPUT_EXT
+# export OUTPUT_FILE_PATH=$OUTPUT
+# export OUTPUT_FILE_FORMAT="$PWD/$OUTPUT_EXT"
+
+DIR=$(dirname "$0")
+blender "$1" --background -noaudio -P "$DIR/blender/to_gltf.py"

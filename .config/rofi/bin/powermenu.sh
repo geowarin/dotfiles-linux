@@ -9,7 +9,7 @@ lock=""
 suspend=""
 logout=""
 
-options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
+options="$shutdown\n$reboot\n$suspend\n$lock\n$logout"
 
 uptime=$(uptime -p | sed -e 's/up //g')
 
