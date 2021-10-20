@@ -2,7 +2,6 @@
 configuration {
   modi: "drun";
   show-icons: true;
-  line-padding: 4;
   display-drun: " ";
   drun-display-format: "{name}";
   application-fallback-icon: "preferences-other";

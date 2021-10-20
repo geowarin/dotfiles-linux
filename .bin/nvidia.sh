@@ -53,6 +53,11 @@ EOF
 
 pacman -S -q --noconfirm "$package" nvidia-settings
 
+# IDK LOL
+tee "/etc/udev/rules.d/70-nvidia.rules" <<EOF
+ACTION=="add", DEVPATH=="/bus/pci/drivers/nvidia", RUN+="/usr/bin/nvidia-modprobe -c0 -u"
+EOF
+
 # cat > ~/.xprofile <<EOF
 # # loads .nvidia-settings-rc
 # nvidia-settings --load-config-only

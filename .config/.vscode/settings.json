@@ -6,8 +6,8 @@
         "Bitwarden CLI/": true,
     },
     "files.associations": {
-        "**/.i3/config": "i3",
         "**/i3/config": "i3",
+        "**/i3/**/*.conf": "i3",
         "**/dunst/dunstrc": "ini"
     },
 }
