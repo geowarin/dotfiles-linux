@@ -23,3 +23,11 @@ pacfind () {
 pacremove() {
 	pacman -Qq | fzf -q "${@:-}" -m --preview "pacman -Qil {}" --layout=reverse  | xargs -ro sudo pacman -Rsn
 }
+
+# launch http server
+server() {
+	local dir="${1:-.}";
+	local port="${2:-9000}";
+	sleep 1 && firefox --new-window "http://localhost:${port}" &
+	python -m http.server "${port}" --directory "${dir}"
+}
