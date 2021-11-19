@@ -53,7 +53,7 @@ EOF
 
 pacman -S -q --noconfirm "$package" nvidia-settings
 
-# IDK LOL
+# IDK LOL: https://github.com/HansKristian-Work/vkd3d-proton/issues/711#issuecomment-867000702
 tee "/etc/udev/rules.d/70-nvidia.rules" <<EOF
 ACTION=="add", DEVPATH=="/bus/pci/drivers/nvidia", RUN+="/usr/bin/nvidia-modprobe -c0 -u"
 EOF
