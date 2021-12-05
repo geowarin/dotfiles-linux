@@ -31,3 +31,15 @@ server() {
 	sleep 1 && firefox --new-window "http://localhost:${port}" &
 	python -m http.server "${port}" --directory "${dir}"
 }
+
+# pacman
+
+# List orphan
+# pacman -Qtdq
+
+# Remove orphans
+# pacman -Qtdq | pacman -Rns -
+
+# save pkglist
+# pacman -Qqen > pkglist.txt
+# pacman -Qqem > pkglist_aur.txt
