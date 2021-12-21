@@ -24,6 +24,10 @@ pacremove() {
 	pacman -Qq | fzf -q "${@:-}" -m --preview "pacman -Qil {}" --layout=reverse  | xargs -ro sudo pacman -Rsn
 }
 
+pacnew() {
+	find /etc -regextype posix-extended -regex ".+\.pac(new|save)" 2> /dev/null
+}
+
 # launch http server
 server() {
 	local dir="${1:-.}";

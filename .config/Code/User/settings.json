@@ -24,4 +24,5 @@
     "workbench.editor.untitled.hint": "hidden",
     "security.workspace.trust.enabled": false,
     "editor.bracketPairColorization.enabled": true,
+    "extensions.ignoreRecommendations": true,
 }

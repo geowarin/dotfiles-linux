@@ -2,7 +2,7 @@ export XDG_CONFIG_HOME=${HOME}/.config
 export XDG_CACHE_HOME=${HOME}/.cache
 export XDG_DATA_HOME=${HOME}/.local/share
 
-export PATH="${PATH}:${HOME}/bin"
+export PATH="${HOME}/bin:$HOME/.local/bin:${PATH}"
 
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
 if [ ! -d $(dirname $HISTFILE) ]; then mkdir -p $(dirname $HISTFILE); fi
