@@ -1,0 +1,3 @@
+close_on_unfocus = 1
+external_viewer = sunbird -showdate "%Y-%m-%d"
+mainwindow_yoffset = 10

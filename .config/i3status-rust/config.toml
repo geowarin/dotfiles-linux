@@ -25,14 +25,15 @@ on_click = "fakeroot paru -Qu --dbpath /tmp/checkup-db-geo/ | rofi -dmenu"
 
 [[block]]
 block = "keyboard_layout"
-driver = "setxkbmap"
-# driver = "localebus"
+#driver = "setxkbmap"
+driver = "localebus"
 # interval = 10
 
 [[block]]
 block = "time"
 interval = 5
 format = "%a %d/%m %R"
+on_click = "gsimplecal"
 
 [[block]]
 block = "sound"
