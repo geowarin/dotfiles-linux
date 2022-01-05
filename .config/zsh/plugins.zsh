@@ -14,8 +14,7 @@ zplug "plugins/command-not-found", from:oh-my-zsh
 zplug "hcgraf/zsh-sudo"
 
 # Prompt
-zplug mafredri/zsh-async, from:github
-zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 
 # Syntax highlighting needs to be loaded after compinit
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
