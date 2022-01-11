@@ -7,13 +7,7 @@
     },
     {
         "key": "ctrl+[Period]",
-        "command": "extension.multiCommand.execute",
-        "args": {
-            "sequence": [
-                "editor.action.commentLine",
-                "cursorDown"
-            ]
-        },
+        "command": "editor.action.commentLine",
         "when": "editorTextFocus && !editorReadonly"
     },
     {
