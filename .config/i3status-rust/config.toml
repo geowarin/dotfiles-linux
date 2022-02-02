@@ -25,9 +25,9 @@ on_click = "fakeroot paru -Qu --dbpath /tmp/checkup-db-geo/ | rofi -dmenu"
 
 [[block]]
 block = "keyboard_layout"
-#driver = "setxkbmap"
-driver = "localebus"
-# interval = 10
+driver = "setxkbmap"
+# driver = "localebus"
+# interval = 1
 
 [[block]]
 block = "time"

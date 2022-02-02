@@ -26,8 +26,3 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-for_window [class="gltf-viewer"] floating enable
-for_window [instance="Godot_Engine" title="\(DEBUG\)$"] floating enable
-for_window [title="^Steam - News"] kill
-# for_window [floating] move absolute position center
