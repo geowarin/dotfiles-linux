@@ -37,3 +37,8 @@ $character"""
 
 [dotnet]
 format="via [$symbol($version) \\($tfm\\)]($style) "
+
+[nodejs]
+detect_extensions=[]
+[python]
+detect_extensions=[]

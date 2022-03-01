@@ -28,6 +28,12 @@ pacnew() {
 	find /etc -regextype posix-extended -regex ".+\.pac(new|save)" 2> /dev/null
 }
 
+# requires meld
+pacmerge() {
+	tomerge=$(pacnew | fzf)
+	sudo p3wm "$tomerge"
+}
+
 # launch http server
 server() {
 	local dir="${1:-.}";

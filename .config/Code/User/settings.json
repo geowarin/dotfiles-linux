@@ -25,4 +25,6 @@
     "security.workspace.trust.enabled": false,
     "editor.bracketPairColorization.enabled": true,
     "extensions.ignoreRecommendations": true,
+    "workbench.startupEditor": "none",
+    "godot_tools.gdscript_lsp_server_port": 6005,
 }

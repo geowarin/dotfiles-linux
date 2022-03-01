@@ -27,4 +27,6 @@ if [ ! -d $(dirname $_Z_DATA) ]; then mkdir -p $(dirname $_Z_DATA); fi
 export ZPLUG_LOADFILE="$XDG_CONFIG_HOME/zsh/plugins.zsh"
 
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+export SCONSFLAGS="-j8"
+
 export ZDOTDIR=${XDG_CONFIG_HOME}/zsh

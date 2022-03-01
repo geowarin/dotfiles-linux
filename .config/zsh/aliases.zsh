@@ -13,7 +13,7 @@ alias g="git"
 alias h="history"
 alias j="jobs"
 
-alias ls='ls --color=auto'
+alias ls='ls --color=auto --hyperlink=auto'
 alias l="ls -lF"
 alias la="ls -laF"
 
