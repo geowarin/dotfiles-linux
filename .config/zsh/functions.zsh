@@ -6,7 +6,7 @@ function mkd() {
 
 # run in background and detach
 bgh() { 
-	"$@" &>/dev/null & 
+	"$@" &>/dev/null &!
 }
 
 # list installed packages
