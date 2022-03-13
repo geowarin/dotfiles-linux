@@ -18,10 +18,11 @@ critical_updates_regex = "(linux|linux-lts|linux-zen)"
 aur_command = "paru -Qua"
 on_click = "fakeroot paru -Qu --dbpath /tmp/checkup-db-geo/ | rofi -dmenu"
 
-# [[block]]
-# block = "github"localebus
-# format = "{total}"
-# on_click = "firefox https://github.com/notifications"
+[[block]]
+block = "github"
+format = "{total}"
+on_click = "firefox https://github.com/notifications"
+if_command = "env | grep I3RS_GITHUB_TOKEN"
 
 [[block]]
 block = "keyboard_layout"

@@ -8,7 +8,7 @@ zstyle ':completion:*' use-cache true
 zstyle ':completion:*' cache-path "$ZCOMPCACHE"
 
 # automatically load bash completion functions
-autoload -U +X bashcompinit && bashcompinit
+# autoload -U +X bashcompinit && bashcompinit
 
 # show completion menu on successive tab press
 zstyle ':completion:*:*:*:*:*' menu select

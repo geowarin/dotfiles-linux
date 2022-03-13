@@ -11,8 +11,6 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 
 # export ZCOMPDUMP=$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
-# if [ ! -d $(dirname $ZCOMPDUMP) ]; then mkdir -p $(dirname $ZCOMPDUMP); fi
-
 export ZCOMPCACHE="$XDG_CACHE_HOME/zsh/zcompcache"
 export ZCOMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
 if [ ! -d $(dirname $ZCOMPDUMP) ]; then mkdir -p $(dirname $ZCOMPDUMP); fi
@@ -33,4 +31,5 @@ export ZPLUG_LOADFILE="$XDG_CONFIG_HOME/zsh/plugins.zsh"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export SCONSFLAGS="-j8"
 
-# export ZDOTDIR=${XDG_CONFIG_HOME}/zsh
+# hub
+export GITHUB_USER=geowarin

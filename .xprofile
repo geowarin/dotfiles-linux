@@ -1,3 +1,8 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
 nvidia-settings --load-config-only
 export QT_QPA_PLATFORMTHEME=qt5ct
+
+# load secrets
+# GITHUB_TOKEN I3RS_GITHUB_TOKEN
+. "/home/geo/.env-secrets"
