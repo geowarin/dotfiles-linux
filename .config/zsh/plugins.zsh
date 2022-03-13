@@ -4,11 +4,6 @@ zplug "rupa/z", use:z.sh
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 
-# nice keybindings
-zplug "lib/key-bindings", from:oh-my-zsh
-# menu selection for directories (tab-tab)
-zplug "lib/completion", from:oh-my-zsh
-
 # requires pkgfile
 zplug "plugins/command-not-found", from:oh-my-zsh
 

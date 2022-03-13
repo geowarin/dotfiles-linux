@@ -42,6 +42,17 @@ server() {
 	python -m http.server "${port}" --directory "${dir}"
 }
 
+# Downloads a site completely with wget
+function dlsite() {
+	wget --mirror --convert-links --adjust-extension --page-requisites -U Mozilla --no-parent -e robots=off --wait=3 --random-wait --limit-rate=900k --no-check-certificate $@
+}
+
+# Update compinit
+update_compinit() {
+	command rm -rf "$ZCOMPDUMP"
+	compinit -i -d "$ZCOMPDUMP"
+}
+
 # pacman
 
 # List orphan
