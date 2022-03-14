@@ -17,6 +17,7 @@ alias j="jobs"
 alias ls='ls --color=auto --hyperlink=auto'
 alias l="ls -lF"
 alias la="ls -laF"
+alias lt="l -s time"
 
 alias grep="grep --color=auto"
 
