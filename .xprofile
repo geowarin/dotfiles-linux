@@ -2,6 +2,8 @@
 
 nvidia-settings --load-config-only
 export QT_QPA_PLATFORMTHEME=qt5ct
+# For flatpaks - requires org.gtk.Gtk3theme.Arc-Dark 
+export GTK_THEME="Arc-Dark"
 
 # load secrets
 # GITHUB_TOKEN I3RS_GITHUB_TOKEN

@@ -1,15 +1,13 @@
- # "Moonshine" - a dircolor colorscheme for GNU ls.
-# github: https://github.com/karoliskoncevicius/dircolors-moonshine
-# author: Karolis Koncevicius
-# license: http://sam.zoy.org/wtfpl/ Do What The Fuck You Want To Public License
-#
-# This dircolors colorscheme is heavily based on and inspired by "Solarized":
-# @author  {@link http://sebastian.tramp.name Sebastian Tramp}
-# @license http://sam.zoy.org/wtfpl/ Do What The Fuck You Want To Public License
-
-
 # Configuration file for dircolors, a utility to help you set the
 # LS_COLORS environment variable used by GNU ls with the --color option.
+# Copyright (C) 1996, 1999-2011 Free Software Foundation, Inc.
+# Copying and distribution of this file, with or without modification,
+# are permitted provided the copyright notice and this notice are preserved.
+# The keywords COLOR, OPTIONS, and EIGHTBIT (honored by the
+# slackware version of dircolors) are recognized but ignored.
+# Below, there should be one TERM entry for each termtype that is colorizable
+
+# https://github.com/jmcantrell/dircolors/blob/master/dircolors-8
 
 
 # Term Section
