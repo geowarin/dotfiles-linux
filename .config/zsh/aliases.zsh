@@ -30,6 +30,7 @@ if command -v bat >/dev/null 2>&1; then
 fi
 
 if command -v exa >/dev/null 2>&1; then
+	# alias exa='LS_COLORS=" " exa'
 	alias ls="exa --icons"
 fi
 
