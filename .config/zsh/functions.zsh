@@ -4,6 +4,10 @@ function mkd() {
 	mkdir -p "$@" && cd "$_";
 }
 
+function touch() {
+	mkdir -p "$(dirname "$1")" && touch "$1"
+}
+
 # run in background and detach
 bgh() { 
 	"$@" &>/dev/null &!

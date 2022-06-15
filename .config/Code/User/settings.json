@@ -27,4 +27,8 @@
     "extensions.ignoreRecommendations": true,
     "workbench.startupEditor": "none",
     "godot_tools.gdscript_lsp_server_port": 6005,
+    "files.associations": {
+        "shader": "GLSL",
+        "gdshader": "GLSL",
+    }
 }

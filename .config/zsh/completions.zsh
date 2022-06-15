@@ -15,6 +15,8 @@ zstyle ':completion:*' cache-path "$ZCOMPCACHE"
 
 # from: https://github.com/Phantas0s/.dotfiles/blob/master/zsh/completion.zsh
 
+# see also: https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org
+
 # +---------+
 # | Options |
 # +---------+
@@ -36,7 +38,7 @@ setopt COMPLETE_IN_WORD     # Complete from both ends of a word.
 zstyle ':completion:*' completer _extensions _complete _approximate
 
 # Complete the alias when _expand_alias is used as a function
-zstyle ':completion:*' complete true
+# zstyle ':completion:*' complete true
 
 # Allow you to select in a menu
 zstyle ':completion:*' menu select
@@ -69,3 +71,6 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 zstyle ':completion:*' keep-prefix true
 
 zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
+
+# bat completions seem broken for middle of word complete...
+compdef cat=bat
