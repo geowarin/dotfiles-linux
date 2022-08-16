@@ -2,48 +2,55 @@
 
 set -e
 
+# Terminal
 paru -S \
 man-db \
-xdg-user-dirs \
 xdg-utils \
-git \
+kitty \
 zsh \
 fzf \
-kitty \
-polkit-gnome \
-gnome-keyring \
-thunar \
-tumbler \
-tumbler-extra-thumbnailers \
-f3d-bin \
-gvfs \
-rofi \
-python-i3ipc \
-dunst \
-noto-fonts \
-nitrogen \
-picom \
-i3status-rust \
+starship \
 zplug \
 visual-studio-code-bin \
 nerd-fonts-jetbrains-mono \
-i3icons2-git \
-rofi-greenclip \
-bitw-git \
-bitwarden-cli-bin \
-bitwarden-rofi \
-rofimoji \
-clipmenu \
-autotiling \
-betterlockscreen \
-blueman \
-pavucontrol \
-evince \
 exa \
 bat \
 hub \
-fd \
+fd
+
+# useful programs
+paru -S \
+xdg-user-dirs \
+f3d-bin \
+bitw-git \
 imv \
+evince \
 flameshot
+
+# i3 utils
+paru -S \
+polkit-gnome \
+gnome-keyring \
+dunst \
+thunar \
+tumbler \
+tumbler-extra-thumbnailers \
+gvfs \
+autotiling \
+python-i3ipc \
+i3icons2-git \
+blueman \
+pavucontrol \
+betterlockscreen \
+i3status-rust \
+noto-fonts \
+nitrogen \
+picom \
+rofi \
+bitwarden-cli-bin \
+bitwarden-rofi \
+rofi-greenclip \
+rofimoji \
+clipmenu
 
 chsh -s /usr/bin/zsh 
