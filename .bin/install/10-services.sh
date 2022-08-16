@@ -2,6 +2,17 @@
 
 set -e
 
+sudo sed -i 's/^#Color$/Color/' /etc/pacman.conf
+sudo sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
+sudo sed -i 's/^#CheckSpace$/CheckSpace/' /etc/pacman.conf
+sudo sed -i 's/^#VerbosePkgLists$/VerbosePkgLists/' /etc/pacman.conf
+sudo sed -i '/^VerbosePkgLists$/ a ILoveCandy' /etc/pacman.conf
+sudo sed -i '/\[multilib]$/ {
+    N
+    /Include/s/#//g}' /etc/pacman.conf
+
+sudo pacman -Sy
+
 paru -S \
 pacman-contrib \
 reflector \
@@ -16,17 +27,6 @@ tee /etc/xdg/reflector/reflector.conf <<EOF
 --sort rate
 --age 12
 EOF
-
-sudo sed -i 's/^#Color$/Color/' /etc/pacman.conf
-sudo sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
-sudo sed -i 's/^#CheckSpace$/CheckSpace/' /etc/pacman.conf
-sudo sed -i 's/^#VerbosePkgLists$/VerbosePkgLists/' /etc/pacman.conf
-sudo sed -i '/^VerbosePkgLists$/ a ILoveCandy' /etc/pacman.conf
-sudo sed -i '/\[multilib]$/ {
-    N
-    /Include/s/#//g}' /etc/pacman.conf
-
-sudo pacman -Sy
 
 # sudo systemctl enable lightdm
 sudo systemctl enable reflector.timer
