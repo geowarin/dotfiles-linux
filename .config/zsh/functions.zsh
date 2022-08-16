@@ -5,7 +5,7 @@ function mkd() {
 }
 
 function touch() {
-	mkdir -p "$(dirname "$1")" && touch "$1"
+	mkdir -p "$(dirname "$1")" && /usr/bin/touch "$1"
 }
 
 # run in background and detach

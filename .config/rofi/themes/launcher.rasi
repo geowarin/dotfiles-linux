@@ -5,6 +5,11 @@ configuration {
   display-drun: " ";
   drun-display-format: "{name}";
   application-fallback-icon: "preferences-other";
+  drun-match-fields: "name,generic,categories";
+  // drun-categories: "Game";
+  matching: "fuzzy";
+  sort: true;
+  sorting-method: "fzf";
 }
 
 @import "../config"
