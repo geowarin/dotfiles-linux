@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=KenShape
+GenericName=KenShape
+Comment=KenShape
+Exec=/home/geo/dev/tools/KenShape-1.4.0/KenShape.x86_64
+Terminal=false
+Type=Application
+Icon=duckstation
+Categories=Graphics;3DGraphics;
+NoDisplay=false

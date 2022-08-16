@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Blog
+Exec=/home/geo/bin/idea /home/geo/dev/blog
+Terminal=false
+Type=Application
+Icon=notes
+Categories=Development;
+NoDisplay=false
