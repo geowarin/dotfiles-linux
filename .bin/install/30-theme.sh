@@ -1,30 +1,40 @@
-#! /bin/bash
+#!/usr/bin/env -S bash -e
 
-home_dir=$1
-if [ ! -d "$home_dir" ]; then 
-    echo "Please pass a home dir as the first argument to $0"
-    exit 1
-fi
+set -e
 
-mkdir -p "$home_dir/.config/nitrogen"
+paru -S \
+archlinux-wallpaper \
+arc-gtk-theme \
+papirus-icon-theme
 
-tee "$home_dir/.config/nitrogen/nitrogen.cfg" <<EOF
+# sed -i 's|^#GRUB_THEME.*|GRUB_THEME="/usr/share/grub/themes/poly-dark/theme.txt"|' /etc/default/grub
+
+tee /etc/lightdm/lightdm-gtk-greeter.conf <<EOF
+[greeter]
+theme-name = Arc-Dark
+icon-theme-name = Papirus
+background = /usr/share/backgrounds/archlinux/archbtw.png
+EOF
+
+mkdir -p "$HOME/.config/nitrogen"
+
+tee "$HOME/.config/nitrogen/nitrogen.cfg" <<EOF
 [nitrogen]
 view=icon
 recurse=true
 sort=alpha
 icon_caps=false
-dirs=/usr/share/backgrounds;$home_dir/wallpapers/;
+dirs=/usr/share/backgrounds;$HOME/wallpapers/;
 EOF
 
-tee "$home_dir/.config/nitrogen/bg-saved.cfg" <<EOF
+tee "$HOME/.config/nitrogen/bg-saved.cfg" <<EOF
 [xin_-1]
-file=$home_dir/wallpapers/wallhaven-136m9w.png
+file=$HOME/wallpapers/wallhaven-136m9w.png
 mode=5
 bgcolor=#000000
 EOF
 
-tee "$home_dir/.gtkrc-2.0" <<EOF
+tee "$HOME/.gtkrc-2.0" <<EOF
 gtk-theme-name="Arc-Dark"
 gtk-icon-theme-name="Papirus"
 gtk-font-name="Cantarell 11"
@@ -42,7 +52,7 @@ gtk-xft-hintstyle="hintfull"
 gtk-xft-rgba="rgb"
 EOF
 
-tee "$home_dir/.config/gtk-3.0/settings.ini" <<EOF
+tee "$HOME/.config/gtk-3.0/settings.ini" <<EOF
 [Settings]
 gtk-theme-name=Arc-Dark
 gtk-icon-theme-name=Papirus
