@@ -1,7 +1,5 @@
 #!/usr/bin/env -S bash -e
 
-set -e
-
 # Terminal
 paru -S \
 man-db \

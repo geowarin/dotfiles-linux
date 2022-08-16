@@ -1,7 +1,5 @@
 #!/usr/bin/env -S bash -e
 
-set -e
-
 sudo sed -i 's/^#Color$/Color/' /etc/pacman.conf
 sudo sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 sudo sed -i 's/^#CheckSpace$/CheckSpace/' /etc/pacman.conf
