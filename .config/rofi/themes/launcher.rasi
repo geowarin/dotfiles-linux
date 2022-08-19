@@ -10,6 +10,9 @@ configuration {
   matching: "fuzzy";
   sort: true;
   sorting-method: "fzf";
+  // hover-select: true;
+  me-select-entry: "";
+  me-accept-entry: "MousePrimary";
 }
 
 @import "../config"
