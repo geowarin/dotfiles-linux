@@ -14,7 +14,12 @@ nerd-fonts-jetbrains-mono \
 exa \
 bat \
 hub \
-fd
+fd \
+grep \
+ripgrep \
+which \
+btop \
+pkgfile
 
 # useful programs
 paru -S \
@@ -26,11 +31,14 @@ evince \
 flameshot
 
 # i3 utils
+# thunar \
+
 paru -S \
 polkit-gnome \
 gnome-keyring \
 dunst \
-thunar \
+nautilus \
+sushi \
 tumbler \
 tumbler-extra-thumbnailers \
 gvfs \
@@ -49,6 +57,8 @@ bitwarden-cli-bin \
 bitwarden-rofi \
 rofi-greenclip \
 rofimoji \
-clipmenu
+clipmenu \
+touchegg
+
 
 chsh -s /usr/bin/zsh 
