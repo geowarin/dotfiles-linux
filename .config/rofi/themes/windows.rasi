@@ -1,0 +1,137 @@
+
+configuration {
+  modi: "window";
+  show-icons: true;
+  application-fallback-icon: "preferences-other";
+  me-select-entry: "";
+  hover-select: true;
+  me-accept-entry: "MousePrimary";
+  window-thumbnail: true;
+  // window-format: "{t}\n{n}";
+  window-format: "{t}";
+  // window-format: "<span color='red'><b>This is still the end</b></span>";
+  kb-remove-char-forward: "";
+  kb-accept-alt: "Delete";
+  click-to-exit: false;
+  // window {
+  //   close-on-delete: false;
+  // }
+}
+
+@import "../config"
+
+element-text, element-icon {
+    text-color:       inherit;
+}
+
+window {
+  // anchor:     north;
+  // location:   north;
+  // width:      1001px;
+  width:      1001px;
+  // 150px (img) + 2 * 10px (padding list) + 2 * 10px (padding el) + 24px (font)
+  height:      214px;
+
+  // padding:    4px;
+  padding: 0;
+  border: 0;
+  children:   [ horibox ];
+}
+
+horibox {
+  orientation: horizontal;
+  children:   [ listview ];
+  // children:   [ prompt, entry, listview ];
+}
+
+textbox-custom {
+  expand: false;
+  content: "Hello";
+  // width: 200px;
+  // height: 24px;
+  // padding: 24px
+  padding: 0 0 30px 0px;
+  background-color: red;
+  text-color: pink;
+}
+
+listview {
+  layout:     horizontal;
+  lines:  10;
+  // padding: 10px 0;
+  // spacing: 5px;
+  spacing: 0;
+}
+
+// entry {
+//   expand:     false;
+//   width:      10em;
+// }
+
+element-icon {
+  size: 150px;
+//   horizontal-align: 0.5;
+}
+
+element {
+  // padding: 0 0 24px 0px;/
+  padding: 10px;
+  width: 200px;
+  orientation: vertical;
+  border: 0;
+  // children:   [ textbox-custom, element-icon, element-text ];
+  // children:   [ textbox-custom ];
+}
+
+element-text {
+  padding: 10px;
+  horizontal-align: 0.5;
+}
+
+// listview {
+//   // columns: 5;
+//   // lines: 1;
+//   // scrollbar: false;
+//   // size: 100px;
+//   // fixed-height: true;
+//   layout: horizontal;
+//   spacing:    5px;
+//   // lines:      10;
+// }
+
+//  element {
+//   // orientation: vertical;
+//  }
+
+// element {
+//   width: 12%;
+// }
+
+// // element {
+// //   orientation: vertical;
+// //   border-radius: 0%;
+// //   padding: 2% 0% 2% 0%;
+// //   height: 32px;
+// // }
+
+//  element {
+//   orientation: vertical;
+//   // eh: 1000px;
+
+//   // children: [ element-text, element-icon ];
+//   // spacing: 0.5em;
+//   // horizontal-align: 0.5;
+//   // height: 4em;
+//   // size: 1000px;
+// }
+
+// element-icon {
+//   size: 5em;
+//   horizontal-align: 0.5;
+// }
+ 
+// element-text {
+//   // orientation: horizontal;
+//   horizontal-align: 0.5;
+//   // vertical-align: 0.5;
+// }
