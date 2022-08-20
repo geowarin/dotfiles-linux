@@ -27,7 +27,7 @@ format_singular = "{both} update"
 format_up_to_date = "up to date"
 critical_updates_regex = "(linux|linux-lts|linux-zen)"
 aur_command = "paru -Qua"
-on_click = "fakeroot paru -Qu --dbpath /tmp/checkup-db-geo/ | rofi -dmenu"
+on_click = "~/.config/rofi/bin/updates.sh"
 
 # [[block]]
 # block = "temperature"

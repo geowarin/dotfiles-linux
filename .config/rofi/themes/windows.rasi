@@ -12,7 +12,7 @@ configuration {
   // window-format: "<span color='red'><b>This is still the end</b></span>";
   kb-remove-char-forward: "";
   kb-accept-alt: "Delete";
-  click-to-exit: false;
+  // click-to-exit: false;
   // window {
   //   close-on-delete: false;
   // }

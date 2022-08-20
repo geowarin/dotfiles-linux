@@ -6,7 +6,7 @@ configuration {
   drun-display-format: "{name}";
   application-fallback-icon: "preferences-other";
   drun-match-fields: "name,generic,categories";
-  // drun-categories: "Game";
+  // drun-categories: "Graphics";
   matching: "fuzzy";
   sort: true;
   sorting-method: "fzf";
