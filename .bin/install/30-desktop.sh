@@ -1,6 +1,7 @@
 #!/usr/bin/env -S bash -e
 
 paru -S \
+xdg-desktop-portal-gtk \
 signal-desktop \
 flatpak \
 firefox \
@@ -17,7 +18,7 @@ com.leinardi.gwe
 # io.github.achetagames.epic_asset_manager
 # com.discordapp.Discord
 
-tee /etc/X11/xorg.conf.d/99-synaptics-overrides.conf <<EOF
+sudo tee /etc/X11/xorg.conf.d/99-synaptics-overrides.conf <<EOF
 Section  "InputClass"
     Identifier  "touchpad overrides"
     Driver "libinput"

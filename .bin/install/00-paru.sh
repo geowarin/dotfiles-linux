@@ -3,8 +3,8 @@
 sudo pacman -S --needed base-devel
 
 pushd /tmp
-git clone https://aur.archlinux.org/paru.git
-pushd paru
+git clone https://aur.archlinux.org/paru-bin.git
+pushd paru-bin
 makepkg -si
 popd
 popd

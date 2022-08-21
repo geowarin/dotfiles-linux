@@ -3,7 +3,7 @@ export XDG_CACHE_HOME=${HOME}/.cache
 export XDG_DATA_HOME=${HOME}/.local/share
 
 typeset -U PATH path
-export PATH="${HOME}/bin:$HOME/.local/bin:${PATH}"
+export PATH="${HOME}/bin:$HOME/.local/bin:${PATH}:$HOME/.local/share/JetBrains/Toolbox/scripts"
 
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
 if [ ! -d $(dirname $HISTFILE) ]; then mkdir -p $(dirname $HISTFILE); fi
