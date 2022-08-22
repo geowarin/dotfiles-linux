@@ -34,7 +34,8 @@ bitw-git \
 imv \
 evince \
 visual-studio-code-bin \
-flameshot
+flameshot \
+seahorse
 
 # i3 utils
 # thunar \
