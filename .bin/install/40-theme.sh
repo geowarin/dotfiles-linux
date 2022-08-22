@@ -52,6 +52,8 @@ gtk-xft-hintstyle="hintfull"
 gtk-xft-rgba="rgb"
 EOF
 
+mkdir "$HOME/.config/gtk-3.0/"
+
 tee "$HOME/.config/gtk-3.0/settings.ini" <<EOF
 [Settings]
 gtk-theme-name=Arc-Dark

@@ -11,8 +11,8 @@ name = "nord-dark"
 
 [icons]
 name = "awesome6"
-[icons.overrides]
-gpu = ""
+# [icons.overrides]
+# gpu = ""
 
 [[block]]
 block = "focused_window"
@@ -67,7 +67,8 @@ on_click = "gsimplecal"
 [[block]]
 block = "sound"
 # driver = "pulseaudio"
-format = "{output_name} {volume}"
+# format = "{output_name} {volume}"
+format = "{volume}"
 [block.mappings]
 "alsa_output.pci-0000_00_1f.3.analog-stereo" = ""
 "alsa_output.pci-0000_01_00.1.hdmi-stereo" = ""

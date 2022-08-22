@@ -1,5 +1,10 @@
 #!/usr/bin/env -S bash -e
 
+# fonts
+paru -S \
+noto-fonts \
+nerd-fonts-jetbrains-mono \
+
 # Terminal
 paru -S \
 man-db \
@@ -9,8 +14,6 @@ zsh \
 fzf \
 starship \
 zplug \
-visual-studio-code-bin \
-nerd-fonts-jetbrains-mono \
 exa \
 bat \
 hub \
@@ -28,6 +31,7 @@ f3d-bin \
 bitw-git \
 imv \
 evince \
+visual-studio-code-bin \
 flameshot
 
 # i3 utils
@@ -38,6 +42,8 @@ polkit-gnome \
 gnome-keyring \
 dunst \
 nautilus \
+#bugfix for shushi
+webkit2gtk \
 sushi \
 tumbler \
 tumbler-extra-thumbnailers \
@@ -49,11 +55,10 @@ blueman \
 pavucontrol \
 betterlockscreen \
 i3status-rust \
-noto-fonts \
 nitrogen \
 picom \
 rofi \
-bitwarden-cli-bin \
+bitwarden-cli \
 bitwarden-rofi \
 rofi-greenclip \
 rofimoji \

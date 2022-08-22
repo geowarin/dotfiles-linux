@@ -45,9 +45,10 @@ alias dfe='GIT_DIR=$HOME/dotfiles/ GIT_WORK_TREE=$HOME $EDITOR $HOME/.config'
 alias pstree="ps --user $(id -u) f"
 
 # IDEs
-alias idea="bgh ${HOME}/bin/idea"
-alias clion="bgh ${HOME}/bin/clion"
-alias rider="bgh ${HOME}/bin/rider"
-alias goland="bgh ${HOME}/bin/goland"
-alias pycharm="bgh ${HOME}/bin/pycharm"
-alias fleet="bgh ${HOME}/bin/fleet"
+JB_TB="$HOME/.local/share/JetBrains/Toolbox/scripts"
+alias idea="bgh ${JB_TB}/idea"
+alias clion="bgh ${JB_TB}/clion"
+alias rider="bgh ${JB_TB}/rider"
+alias goland="bgh ${JB_TB}/goland"
+alias pycharm="bgh ${JB_TB}/pycharm"
+alias fleet="bgh ${JB_TB}/fleet"

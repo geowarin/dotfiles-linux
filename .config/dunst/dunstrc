@@ -30,6 +30,8 @@
     mouse_middle_click = close_current
     mouse_right_click = close_all
 
+    dmenu = rofi -dmenu
+
 [fullscreen_pushback]
     fullscreen = pushback
 
