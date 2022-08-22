@@ -8,4 +8,7 @@
 
 # load secrets
 # GITHUB_TOKEN I3RS_GITHUB_TOKEN
-#. "/home/geo/.env-secrets"
+
+if test -f "/home/geo/.env-secrets"; then
+    . "/home/geo/.env-secrets"
+fi

@@ -3,7 +3,9 @@
 # fonts
 paru -S \
 noto-fonts \
+ttf-joypixels \
 nerd-fonts-jetbrains-mono \
+# noto-fonts-emoji
 
 # Terminal
 paru -S \
@@ -41,10 +43,7 @@ paru -S \
 polkit-gnome \
 gnome-keyring \
 dunst \
-nautilus \
-#bugfix for shushi
-webkit2gtk \
-sushi \
+thunar \
 tumbler \
 tumbler-extra-thumbnailers \
 gvfs \
@@ -65,5 +64,9 @@ rofimoji \
 clipmenu \
 touchegg
 
+# nautilus \
+#bugfix for shushi
+# webkit2gtk \
+# sushi \
 
 chsh -s /usr/bin/zsh 
