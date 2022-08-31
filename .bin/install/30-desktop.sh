@@ -27,3 +27,13 @@ Section  "InputClass"
     Option "AccelSpeed" "0.5"
 EndSection
 EOF
+
+sudo tee /etc/X11/xorg.conf.d/10-keyboard.conf <<EOF
+ Section "InputClass"
+    Identifier "MyKeyboard" 
+    Driver "libinput" 
+    Option "XkbLayout" "fr,us" 
+    Option "XkbOptions" "terminate:ctrl_alt_bksp,grp:menu_toggle" 
+    MatchIsKeyboard "on"
+EndSection
+EOF

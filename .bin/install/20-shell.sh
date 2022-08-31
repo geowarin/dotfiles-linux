@@ -60,7 +60,6 @@ picom \
 rofi \
 bitwarden-cli \
 bitwarden-rofi \
-rofi-greenclip \
 rofimoji \
 clipmenu \
 touchegg
@@ -71,3 +70,5 @@ touchegg
 # sushi \
 
 chsh -s /usr/bin/zsh 
+
+systemctl --user enable --now clipmenud.service
