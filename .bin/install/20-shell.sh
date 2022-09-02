@@ -72,3 +72,16 @@ touchegg
 chsh -s /usr/bin/zsh 
 
 systemctl --user enable --now clipmenud.service
+
+sudo mkdir /etc/pacman.d/hooks
+
+sudo tee /etc/pacman.d/hooks/i3status.hook <<EOF
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+When = PostTransaction
+Exec = /usr/bin/pkill -SIGUSR1 i3status-rs
+EOF

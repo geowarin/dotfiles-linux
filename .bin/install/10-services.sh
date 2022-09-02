@@ -32,8 +32,8 @@ sudo systemctl enable reflector.timer
 sudo systemctl enable paccache.timer
 sudo systemctl enable cups.socket
 
-if ! (grep 'GRUB_DISABLE_OS_PROBER' /etc/default/grub); then
-    sudo echo 'GRUB_DISABLE_OS_PROBER=false' | tee -a /etc/default/grub
-fi
+# if ! (grep 'GRUB_DISABLE_OS_PROBER' /etc/default/grub); then
+#     sudo echo 'GRUB_DISABLE_OS_PROBER=false' | tee -a /etc/default/grub
+# fi
 
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+# sudo grub-mkconfig -o /boot/grub/grub.cfg
