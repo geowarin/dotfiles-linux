@@ -5,7 +5,7 @@
 	<name>Open Terminal Here</name>
 	<unique-id>1630165675655443-1</unique-id>
 	<command>kitty -1 -d %f</command>
-	<description>Example for a custom action</description>
+	<description></description>
 	<patterns>*</patterns>
 	<startup-notify/>
 	<directories/>
@@ -43,6 +43,20 @@
 	<unique-id>1631321750692538-3</unique-id>
 	<command>for file in %N; do mv &quot;$file&quot; &quot;$(echo &quot;$file&quot; | tr -s &apos; &apos; | tr &apos; A-Z&apos; &apos;-a-z&apos; | tr -s &apos;-&apos; | tr -c &apos;[:alnum:][:cntrl:].&apos; &apos;-&apos;)&quot;; done</command>
 	<description>Rename the currently selected files, making the filenames lower-case &amp; replacing spaces with dashes.</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>preferences-system-search</icon>
+	<name>Search</name>
+	<unique-id>1663865281484589-1</unique-id>
+	<command>~/.config/Thunar/search.sh %f</command>
+	<description></description>
 	<patterns>*</patterns>
 	<directories/>
 	<audio-files/>

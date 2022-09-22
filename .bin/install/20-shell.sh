@@ -62,7 +62,9 @@ bitwarden-cli \
 bitwarden-rofi \
 rofimoji \
 clipmenu \
-touchegg
+touchegg \
+catfish \
+plocate
 
 # nautilus \
 #bugfix for shushi

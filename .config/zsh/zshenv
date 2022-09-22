@@ -33,3 +33,6 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 
 # hub
 export GITHUB_USER=geowarin
+
+# makepkg (https://wiki.archlinux.org/title/Makepkg#Improving_compile_times)
+export MAKEFLAGS="-j$(nproc)"

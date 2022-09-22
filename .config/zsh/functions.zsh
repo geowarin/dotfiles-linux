@@ -29,13 +29,18 @@ pacremove() {
 }
 
 pacnew() {
-	find /etc -regextype posix-extended -regex ".+\.pac(new|save)" 2> /dev/null
+	#find /etc -regextype posix-extended -regex ".+\.pac(new|save)" 2> /dev/null
+	fd ".+\.pac(new|save)" /etc 2> /dev/null
 }
 
-# requires meld
+# requires aur/p3wm
 pacmerge() {
 	tomerge=$(pacnew | fzf)
 	sudo p3wm "$tomerge"
+}
+
+whoneeds() {
+	comm -12 <(pactree -lru $1|sort) <(pacman -Qqe|sort) | grep -v $1
 }
 
 # launch http server
