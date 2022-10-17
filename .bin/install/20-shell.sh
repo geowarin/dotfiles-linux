@@ -4,7 +4,7 @@
 paru -S \
 noto-fonts \
 ttf-joypixels \
-nerd-fonts-jetbrains-mono \
+nerd-fonts-jetbrains-mono
 # noto-fonts-emoji
 
 # Terminal
@@ -16,7 +16,7 @@ zsh \
 fzf \
 starship \
 zplug \
-exa \
+lsd \
 bat \
 hub \
 fd \
@@ -37,9 +37,6 @@ visual-studio-code-bin \
 flameshot \
 seahorse
 
-# i3 utils
-# thunar \
-
 paru -S \
 polkit-gnome \
 gnome-keyring \
@@ -48,13 +45,9 @@ thunar \
 tumbler \
 tumbler-extra-thumbnailers \
 gvfs \
-autotiling \
-python-i3ipc \
-i3icons2-git \
 blueman \
 pavucontrol \
 betterlockscreen \
-i3status-rust \
 nitrogen \
 picom \
 rofi \
@@ -66,6 +59,13 @@ touchegg \
 catfish \
 plocate
 
+# i3 specific
+paru -S \
+autotiling \
+i3status-rust \
+python-i3ipc \
+i3icons2-git
+
 # nautilus \
 #bugfix for shushi
 # webkit2gtk \
@@ -74,6 +74,8 @@ plocate
 chsh -s /usr/bin/zsh 
 
 systemctl --user enable --now clipmenud.service
+
+pkgfile --update
 
 sudo mkdir /etc/pacman.d/hooks
 

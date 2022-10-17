@@ -20,6 +20,15 @@
 	<other-files/>
 </action>
 <action>
+	<icon>gtk-convert</icon>
+	<name>Fbx2Gltf</name>
+	<unique-id>1664291037586795-1</unique-id>
+	<command>for file in %F; do /home/geo/bin/FBX2glTF --binary --pbr-metallic-roughness &quot;$file&quot;; done</command>
+	<description></description>
+	<patterns>*.fbx</patterns>
+	<other-files/>
+</action>
+<action>
 	<icon>edit-copy</icon>
 	<name>Copy Contents to Clipboard</name>
 	<unique-id>1631321447390155-1</unique-id>

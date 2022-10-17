@@ -29,9 +29,14 @@ if command -v bat >/dev/null 2>&1; then
 	alias cat="bat"
 fi
 
-if command -v exa >/dev/null 2>&1; then
+# if command -v exa >/dev/null 2>&1; then
+# 	# alias exa='LS_COLORS=" " exa'
+# 	alias ls="exa --icons"
+# fi
+
+if command -v lsd >/dev/null 2>&1; then
 	# alias exa='LS_COLORS=" " exa'
-	alias ls="exa --icons"
+	alias ls="lsd --hyperlink=auto"
 fi
 
 
@@ -52,3 +57,5 @@ alias rider="bgh ${JB_TB}/rider"
 alias goland="bgh ${JB_TB}/goland"
 alias pycharm="bgh ${JB_TB}/pycharm"
 alias fleet="bgh ${JB_TB}/fleet"
+
+alias gd_lib="/home/geo/dev/wip/godot-lib-export/gd_make_lib.sh '/home/geo/Documents/Game assets/Y Bot.fbx'"

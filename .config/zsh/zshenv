@@ -3,7 +3,10 @@ export XDG_CACHE_HOME=${HOME}/.cache
 export XDG_DATA_HOME=${HOME}/.local/share
 
 typeset -U PATH path
-export PATH="${HOME}/bin:$HOME/.local/bin:${PATH}"
+export PATH="${HOME}/bin:$HOME/.local/bin:${PATH}:$HOME/.local/share/npm/bin"
+
+export PNPM_HOME="/home/geo/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
 
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
 if [ ! -d $(dirname $HISTFILE) ]; then mkdir -p $(dirname $HISTFILE); fi

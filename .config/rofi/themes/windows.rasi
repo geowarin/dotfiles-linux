@@ -30,7 +30,7 @@ window {
   // width:      1001px;
   width:      1001px;
   // 150px (img) + 2 * 10px (padding list) + 2 * 10px (padding el) + 24px (font)
-  height:      214px;
+  height:      216px;
 
   // padding:    4px;
   padding: 0;

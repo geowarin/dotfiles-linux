@@ -5,9 +5,9 @@ sudo sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 sudo sed -i 's/^#CheckSpace$/CheckSpace/' /etc/pacman.conf
 sudo sed -i 's/^#VerbosePkgLists$/VerbosePkgLists/' /etc/pacman.conf
 sudo sed -i '/^VerbosePkgLists$/ a ILoveCandy' /etc/pacman.conf
-sudo sed -i '/\[multilib]$/ {
-    N
-    /Include/s/#//g}' /etc/pacman.conf
+# sudo sed -i '/\[multilib]$/ {
+#     N
+#     /Include/s/#//g}' /etc/pacman.conf
 
 sudo pacman -Sy
 
@@ -15,8 +15,7 @@ paru -S \
 pacman-contrib \
 reflector \
 brother-mfc-j4625dw \
-cups \
-os-prober
+cups
 
 sudo tee /etc/xdg/reflector/reflector.conf <<EOF
 --save /etc/pacman.d/mirrorlist
