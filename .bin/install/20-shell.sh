@@ -52,7 +52,7 @@ nitrogen \
 picom \
 rofi \
 bitwarden-cli \
-bitwarden-rofi \
+# bitwarden-rofi
 rofimoji \
 clipmenu \
 touchegg \
