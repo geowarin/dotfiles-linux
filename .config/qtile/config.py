@@ -1,12 +1,19 @@
+import json
 import os
 import subprocess
 from typing import Callable
 
-from libqtile import bar, layout, widget, hook
+from libqtile import bar, layout, widget, hook, qtile
+from libqtile.backend.x11.window import XWindow
+from libqtile.backend.base import Window
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.core.manager import Qtile
+from libqtile.group import _Group
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+from libqtile.log_utils import logger
+
+icons_conf = json.load(open('/home/geo/.config/qtile/icons.json'))
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -32,17 +39,20 @@ keys = [
     Key([mod, "control"], "right", lazy.layout.grow_right(), desc="Grow window to the right"),
     Key([mod, "control"], "down", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "up", lazy.layout.grow_up(), desc="Grow window up"),
+
+    Key([mod], "p", lazy.layout.flip(), desc="Flip (monad)"),
+
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
-    Key(
-        [mod, "shift"],
-        "Return",
-        lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack",
-    ),
+    # Key(
+    #     [mod, "shift"],
+    #     "Return",
+    #     lazy.layout.toggle_split(),
+    #     desc="Toggle between split and unsplit sides of stack",
+    # ),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
@@ -108,36 +118,14 @@ for g in groups:
     index = int(g.name)
     group = lazy.group[g.name]
     keys.extend([
-
-        # CHANGE WORKSPACES
-        # Key([mod], group_keys[index - 1], group.toscreen()),
         Key([mod], group_keys[index - 1], lazy.function(go_to_group(g.name))),
-        # Key([mod], "Tab", lazy.screen.next_group()),
-        # Key([mod, "shift"], "Tab", lazy.screen.prev_group()),
-        # Key(["mod1"], "Tab", lazy.screen.next_group()),
-        # Key(["mod1", "shift"], "Tab", lazy.screen.prev_group()),
-
-        # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND STAY ON WORKSPACE
-        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
-        # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND FOLLOW MOVED WINDOW TO WORKSPACE
-        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True)),
         Key([mod, "shift"], group_keys[index - 1], lazy.window.togroup(g.name), lazy.function(go_to_group(g.name))),
     ])
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.MonadTall(),
     layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+    layout.TreeTab(),
 ]
 
 widget_defaults = dict(
@@ -147,17 +135,22 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-
+layout_icon_widget = widget.CurrentLayoutIcon(scale=0.75)
 screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
+                layout_icon_widget,
                 widget.GroupBox(
                     highlight_method='line',
                     visible_groups=['1', '2', '3', '4', '5']
                 ),
                 widget.Prompt(),
+                # widget.TaskList(
+                #     max_title_width=40,
+                #     # theme_mode="preferred",
+                #     # theme_path="/usr/share/icons/Papirus"
+                # ),
                 widget.WindowName(),
                 widget.Chord(
                     chords_colors={
@@ -196,7 +189,7 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
+                layout_icon_widget,
                 widget.GroupBox(
                     highlight_method='line',
                     visible_groups=['6', '7', '8', '9', '10']
@@ -213,8 +206,7 @@ mouse = [
 ]
 
 dgroups_key_binder = None
-# dgroups_key_binder = simple_key_binder(mod)
-dgroups_app_rules = []  # type: list
+dgroups_app_rules = []
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
@@ -238,6 +230,50 @@ def autostart():
     subprocess.call([script])
 
 
+def get_icons(wids: list):
+    windows: list = qtile.cmd_windows()
+
+    icons = []
+    for wid in wids:
+        win = next((x for x in windows if x["id"] == wid), None)
+        if win is not None:
+            wm_class = win["wm_class"][-1]
+            if wm_class in icons_conf:
+                icons.append(icons_conf[wm_class])
+            else:
+                icons.append(wm_class)
+
+    return icons
+
+
+@hook.subscribe.group_window_add
+def on_group_window_add(group: _Group, client: Window):
+    window: XWindow = client.window
+    current_group = qtile.current_group
+
+    wids = [window.wid for window in group.windows]
+    wids.append(window.wid)
+
+    icons = get_icons(wids)
+    group.label = " ".join(icons)
+
+    if current_group.name != group.name:
+        wids = [window.wid for window in current_group.windows]
+        old_icons = get_icons(wids)
+        current_group.label = " ".join(old_icons)
+
+
+@hook.subscribe.client_killed
+def on_client_killed(client: Window):
+    window: XWindow = client.window
+    if client.group is not None:
+        wids = [window.wid for window in client.group.windows]
+        wids.remove(window.wid)
+
+        icons = get_icons(wids)
+        client.group.label = " ".join(icons)
+
+
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
@@ -245,16 +281,6 @@ reconfigure_screens = True
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
 auto_minimize = True
-
 # When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
-
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
 wmname = "LG3D"
