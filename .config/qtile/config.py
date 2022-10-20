@@ -265,12 +265,12 @@ def on_group_window_add(group: _Group, client: Window):
     wids.append(window.wid)
 
     icons = get_icons(wids)
-    group.label = " ".join(icons)
+    group.label = "%s %s" % (group.name, " ".join(icons))
 
     if current_group.name != group.name:
         wids = [window.wid for window in current_group.windows]
         old_icons = get_icons(wids)
-        current_group.label = " ".join(old_icons)
+        current_group.label = "%s %s" % (current_group.name, " ".join(old_icons))
 
 
 @hook.subscribe.client_killed
@@ -281,7 +281,7 @@ def on_client_killed(client: Window):
         wids.remove(window.wid)
 
         icons = get_icons(wids)
-        client.group.label = " ".join(icons)
+        client.group.label = "%s %s" % (client.group.name, " ".join(icons))
 
 
 auto_fullscreen = True
