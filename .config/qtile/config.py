@@ -4,14 +4,13 @@ import subprocess
 from typing import Callable
 
 from libqtile import bar, layout, widget, hook, qtile
-from libqtile.backend.x11.window import XWindow
 from libqtile.backend.base import Window
+from libqtile.backend.x11.window import XWindow
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.core.manager import Qtile
 from libqtile.group import _Group
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
-from libqtile.log_utils import logger
 
 icons_conf = json.load(open('/home/geo/.config/qtile/icons.json'))
 
@@ -26,7 +25,7 @@ keys = [
     Key([mod], "right", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "down", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "up", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+    # Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key([mod, "shift"], "left", lazy.layout.shuffle_left(), desc="Move window to the left"),
@@ -35,10 +34,12 @@ keys = [
     Key([mod, "shift"], "up", lazy.layout.shuffle_up(), desc="Move window up"),
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    Key([mod, "control"], "left", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "right", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key([mod, "control"], "left", lazy.layout.grow_main(), desc="Grow window to the left"),
+    Key([mod, "control"], "right", lazy.layout.shrink_main(), desc="Grow window to the right"),
     Key([mod, "control"], "down", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "up", lazy.layout.grow_up(), desc="Grow window up"),
+
+    Key([mod], "space", lazy.window.toggle_floating(), desc="toggle floating"),
 
     Key([mod], "p", lazy.layout.flip(), desc="Flip (monad)"),
 
@@ -125,13 +126,13 @@ for g in groups:
 layouts = [
     layout.MonadTall(),
     layout.Max(),
-    layout.TreeTab(),
+    # layout.TreeTab(),
 ]
 
 widget_defaults = dict(
     font="Jetbrains Mono",
     fontsize=14,
-    padding=3,
+    padding=5,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -140,6 +141,7 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.Sep(padding=3, linewidth=0, background="#2f343f"),
                 layout_icon_widget,
                 widget.GroupBox(
                     highlight_method='line',
@@ -151,13 +153,15 @@ screens = [
                 #     # theme_mode="preferred",
                 #     # theme_path="/usr/share/icons/Papirus"
                 # ),
-                widget.WindowName(),
+                # widget.Spacer(length=5),
                 widget.Chord(
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
+                widget.Spacer(bar.STRETCH),
+                widget.WindowName(),
 
                 widget.CheckUpdates(
                     distro="Arch_paru",
@@ -166,8 +170,9 @@ screens = [
                 ),
 
                 widget.KeyboardLayout(
-                    configured_keyboards=['fr', 'us']
+                    configured_keyboards=['fr', 'us'],
                 ),
+                widget.Spacer(5),
 
                 widget.TextBox(
                     text="",
@@ -175,11 +180,12 @@ screens = [
                     # background='#4B427E',
                 ),
                 widget.PulseVolume(),
-                widget.Clock(format="%a %b %d %Y %H:%M"),
+                widget.Clock(format=" %a %b %d %Y %H:%M"),
 
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
+                widget.Sep(padding=3, linewidth=0, background="#2f343f"),
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
@@ -203,11 +209,12 @@ mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
     Click([mod], "Button2", lazy.window.bring_to_front()),
+    # Click([], "Button1", lazy.window.focus()),
 ]
 
 dgroups_key_binder = None
 dgroups_app_rules = []
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
@@ -230,6 +237,13 @@ def autostart():
     subprocess.call([script])
 
 
+def find_icon(wm_classes: list):
+    for wm_class in wm_classes:
+        if wm_class in icons_conf:
+            return icons_conf[wm_class]
+    return wm_classes[-1]
+
+
 def get_icons(wids: list):
     windows: list = qtile.cmd_windows()
 
@@ -237,11 +251,7 @@ def get_icons(wids: list):
     for wid in wids:
         win = next((x for x in windows if x["id"] == wid), None)
         if win is not None:
-            wm_class = win["wm_class"][-1]
-            if wm_class in icons_conf:
-                icons.append(icons_conf[wm_class])
-            else:
-                icons.append(wm_class)
+            icons.append(find_icon(win["wm_class"]))
 
     return icons
 
