@@ -66,6 +66,11 @@ i3status-rust \
 python-i3ipc \
 i3icons2-git
 
+# qtile
+# paru -S \
+# qtile \
+# python-dbus-next
+
 # nautilus \
 #bugfix for shushi
 # webkit2gtk \

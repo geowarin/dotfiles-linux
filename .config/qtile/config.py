@@ -1,29 +1,3 @@
-# Copyright (c) 2010 Aldo Cortesi
-# Copyright (c) 2010, 2014 dequis
-# Copyright (c) 2012 Randall Ma
-# Copyright (c) 2012-2014 Tycho Andersen
-# Copyright (c) 2012 Craig Barnes
-# Copyright (c) 2013 horsik
-# Copyright (c) 2013 Tao Sauvage
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
-
 import os
 import subprocess
 from typing import Callable
@@ -33,7 +7,6 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.core.manager import Qtile
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
-from libqtile.log_utils import logger
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -73,22 +46,33 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
-    Key([mod], "d", lazy.spawn('/home/geo/.config/rofi/bin/launcher.sh'), desc="Spawn rofi launcher"),
-    Key([mod, "shift"], "e", lazy.spawn('/home/geo/.config/rofi/bin/powermenu.sh'), desc="Spawn rofi exit menu"),
+    Key([mod], "d", lazy.spawn("/home/geo/.config/rofi/bin/launcher.sh"), desc="Spawn rofi launcher"),
+    Key([mod, "shift"], "e", lazy.spawn("/home/geo/.config/rofi/bin/powermenu.sh"), desc="Spawn rofi exit menu"),
+
+    Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc="Screenshot"),
+    Key([mod], "v", lazy.spawn("/home/geo/.config/rofi/bin/clipmenu.sh"), desc="Clipboard manager"),
+    Key([mod], "semicolon", lazy.spawn("rofimoji --skin-tone neutral"), desc="Spawn emoji picker"),
 
     # Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard(), desc="Next keyboard layout."),
 
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +5%"), desc='Volume Up'),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -5%"), desc='volume down'),
-    Key([], "XF86AudioMute", lazy.spawn("pulsemixer --toggle-mute"), desc='Volume Mute'),
+    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"), desc='Volume Mute'),
+
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc='playerctl'),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc='playerctl'),
     Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc='playerctl'),
+    Key([], "XF86AudioPause", lazy.spawn("playerctl pause"), desc='playerctl'),
+    Key([], "XF86AudioStop", lazy.spawn("playerctl stop"), desc='playerctl'),
+
+    Key([mod], "w", lazy.spawn("firefox"), desc="Firefox"),
+    Key([mod, "shift"], "w", lazy.spawn("firefox --private-window"), desc="Firefox"),
+    Key([mod], "n", lazy.spawn("thunar"), desc="Thunar"),
 
     # Key([mod], "w", lazy.to_screen(0)),
     # Key([mod], "e", lazy.to_screen(1)),
@@ -100,7 +84,7 @@ keys = [
 group_keys = ["ampersand", "eacute", "quotedbl", "apostrophe", "parenleft", "minus", "egrave", "underscore", "ccedilla",
               "agrave"]
 
-groups = [Group(str(i)) for i in range(1, 10)]
+groups = [Group(str(i)) for i in range(1, 11)]
 
 
 def go_to_group(name: str) -> Callable:
@@ -119,9 +103,6 @@ def go_to_group(name: str) -> Callable:
 
     return _inner
 
-
-# for i in range(len(groups)):
-#     keys.append(Key([mod], group_keys[i], lazy.group[groups[i].name].toscreen()))
 
 for g in groups:
     index = int(g.name)
@@ -142,30 +123,6 @@ for g in groups:
         # Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True)),
         Key([mod, "shift"], group_keys[index - 1], lazy.window.togroup(g.name), lazy.function(go_to_group(g.name))),
     ])
-
-# for i in groups:
-#     keys.extend(
-#         [
-#             # mod1 + letter of group = switch to group
-#             Key(
-#                 [mod],
-#                 i.name,
-#                 lazy.group[i.name].toscreen(),
-#                 desc="Switch to group {}".format(i.name),
-#             ),
-#             # mod1 + shift + letter of group = switch to & move focused window to group
-#             Key(
-#                 [mod, "shift"],
-#                 i.name,
-#                 lazy.window.togroup(i.name, switch_group=True),
-#                 desc="Switch to & move focused window to group {}".format(i.name),
-#             ),
-#             # Or, use below if you prefer not to switch to that group.
-#             # # mod1 + shift + letter of group = move focused window to group
-#             # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-#             #     desc="move focused window to group {}".format(i.name)),
-#         ]
-#     )
 
 layouts = [
     layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
@@ -190,13 +147,15 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+
 screens = [
     Screen(
         top=bar.Bar(
             [
                 widget.CurrentLayout(),
                 widget.GroupBox(
-                    highlight_method='line'
+                    highlight_method='line',
+                    visible_groups=['1', '2', '3', '4', '5']
                 ),
                 widget.Prompt(),
                 widget.WindowName(),
@@ -206,13 +165,17 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                # widget.TextBox("default config", name="default"),
-                # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
+
+                widget.CheckUpdates(
+                    distro="Arch_paru",
+                    mouse_callbacks={'Button1': lazy.spawn("/home/geo/.config/rofi/bin/updates.sh")},
+                    padding=5,
+                ),
+
                 widget.KeyboardLayout(
                     configured_keyboards=['fr', 'us']
                 ),
+
                 widget.TextBox(
                     text="",
                     padding=0,
@@ -220,8 +183,10 @@ screens = [
                 ),
                 widget.PulseVolume(),
                 widget.Clock(format="%a %b %d %Y %H:%M"),
+
+                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
+                # widget.StatusNotifier(),
                 widget.Systray(),
-                # widget.QuickExit(),
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
@@ -233,13 +198,13 @@ screens = [
             [
                 widget.CurrentLayout(),
                 widget.GroupBox(
-                    highlight_method='line'
+                    highlight_method='line',
+                    visible_groups=['6', '7', '8', '9', '10']
                 )
             ], 24
         )
     )
 ]
-
 # Drag floating layouts.
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
