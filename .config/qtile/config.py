@@ -92,8 +92,9 @@ keys = [
     # Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl s 10%-"), desc='brightness Down'),
 ]
 
-group_keys = ["ampersand", "eacute", "quotedbl", "apostrophe", "parenleft", "minus", "egrave", "underscore", "ccedilla",
+group_keys_fr = ["ampersand", "eacute", "quotedbl", "apostrophe", "parenleft", "minus", "egrave", "underscore", "ccedilla",
               "agrave"]
+group_keys_en = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
 groups = [Group(str(i)) for i in range(1, 11)]
 
@@ -119,8 +120,10 @@ for g in groups:
     index = int(g.name)
     group = lazy.group[g.name]
     keys.extend([
-        Key([mod], group_keys[index - 1], lazy.function(go_to_group(g.name))),
-        Key([mod, "shift"], group_keys[index - 1], lazy.window.togroup(g.name), lazy.function(go_to_group(g.name))),
+        Key([mod], group_keys_fr[index - 1], lazy.function(go_to_group(g.name))),
+        Key([mod, "shift"], group_keys_fr[index - 1], lazy.window.togroup(g.name), lazy.function(go_to_group(g.name))),
+        Key([mod], group_keys_en[index - 1], lazy.function(go_to_group(g.name))),
+        Key([mod, "shift"], group_keys_en[index - 1], lazy.window.togroup(g.name), lazy.function(go_to_group(g.name))),
     ])
 
 layouts = [

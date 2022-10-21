@@ -20,7 +20,7 @@ export ZCOMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
 if [ ! -d $(dirname $ZCOMPDUMP) ]; then mkdir -p $(dirname $ZCOMPDUMP); fi
 
 export EDITOR=code
-#export TERM=kitty
+export TERM=kitty
 export PAGER=less
 
 if command -v bat >/dev/null 2>&1; then
