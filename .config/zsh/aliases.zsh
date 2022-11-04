@@ -49,6 +49,8 @@ alias dfe='GIT_DIR=$HOME/dotfiles/ GIT_WORK_TREE=$HOME $EDITOR $HOME/.config'
 
 alias pstree="ps --user $(id -u) f"
 
+alias pac_remove_orphans="sudo pacman -Rs $ (pacman -Qtdq)"
+
 # IDEs
 JB_TB="$HOME/.local/share/JetBrains/Toolbox/scripts"
 alias idea="bgh ${JB_TB}/idea"
