@@ -1,5 +1,5 @@
 
-eval "$(dircolors -b $ZDOTDIR/dircolors)"
+# eval "$(dircolors -b $ZDOTDIR/dircolors)"
 source "$XDG_CONFIG_HOME/zsh/zplug.zsh"
 source "$XDG_CONFIG_HOME/zsh/keybindings.zsh"
 source "$XDG_CONFIG_HOME/zsh/completions.zsh"

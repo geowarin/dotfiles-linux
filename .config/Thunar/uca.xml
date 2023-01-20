@@ -3,9 +3,11 @@
 <action>
 	<icon>utilities-terminal</icon>
 	<name>Open Terminal Here</name>
+	<submenu></submenu>
 	<unique-id>1630165675655443-1</unique-id>
 	<command>kitty -1 -d %f</command>
 	<description></description>
+	<range></range>
 	<patterns>*</patterns>
 	<startup-notify/>
 	<directories/>
@@ -13,59 +15,55 @@
 <action>
 	<icon>blender</icon>
 	<name>blend to gltf</name>
+	<submenu>gltf</submenu>
 	<unique-id>1631320416075963-1</unique-id>
 	<command>for file in %F; do /home/geo/bin/blend-export &quot;$file&quot;; done</command>
 	<description></description>
+	<range></range>
 	<patterns>*.blend</patterns>
 	<other-files/>
 </action>
 <action>
 	<icon>gtk-convert</icon>
 	<name>Fbx2Gltf</name>
+	<submenu>gltf</submenu>
 	<unique-id>1664291037586795-1</unique-id>
 	<command>for file in %F; do /home/geo/bin/FBX2glTF --binary --pbr-metallic-roughness &quot;$file&quot;; done</command>
 	<description></description>
+	<range></range>
 	<patterns>*.fbx</patterns>
 	<other-files/>
 </action>
 <action>
 	<icon>edit-copy</icon>
 	<name>Copy Contents to Clipboard</name>
+	<submenu></submenu>
 	<unique-id>1631321447390155-1</unique-id>
 	<command>cat &quot;%F&quot; | xclip -i -selection clipboard</command>
 	<description>Copies the contents of the selected file to the clipboard.</description>
+	<range></range>
 	<patterns>*</patterns>
 	<text-files/>
 </action>
 <action>
 	<icon>go-up</icon>
 	<name>Flatten Folder</name>
+	<submenu></submenu>
 	<unique-id>1631321652343293-2</unique-id>
 	<command>find . -mindepth 2 -type f -exec mv &quot;{}&quot; . \; &amp;&amp; find . -type d -empty -delete</command>
 	<description>Moves all files from sub-folders to parent (current) folder, then removes all empty folders inside the current folder.</description>
+	<range></range>
 	<patterns>*</patterns>
 	<directories/>
 </action>
 <action>
 	<icon>filename-underscore-amarok</icon>
 	<name>Slugify Filename</name>
+	<submenu></submenu>
 	<unique-id>1631321750692538-3</unique-id>
 	<command>for file in %N; do mv &quot;$file&quot; &quot;$(echo &quot;$file&quot; | tr -s &apos; &apos; | tr &apos; A-Z&apos; &apos;-a-z&apos; | tr -s &apos;-&apos; | tr -c &apos;[:alnum:][:cntrl:].&apos; &apos;-&apos;)&quot;; done</command>
 	<description>Rename the currently selected files, making the filenames lower-case &amp; replacing spaces with dashes.</description>
-	<patterns>*</patterns>
-	<directories/>
-	<audio-files/>
-	<image-files/>
-	<other-files/>
-	<text-files/>
-	<video-files/>
-</action>
-<action>
-	<icon>preferences-system-search</icon>
-	<name>Search</name>
-	<unique-id>1663865281484589-1</unique-id>
-	<command>~/.config/Thunar/search.sh %f</command>
-	<description></description>
+	<range></range>
 	<patterns>*</patterns>
 	<directories/>
 	<audio-files/>

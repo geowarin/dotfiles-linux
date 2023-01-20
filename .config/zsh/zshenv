@@ -34,8 +34,8 @@ export ZPLUG_LOADFILE="$XDG_CONFIG_HOME/zsh/plugins.zsh"
 
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 
-# hub
-export GITHUB_USER=geowarin
-
 # makepkg (https://wiki.archlinux.org/title/Makepkg#Improving_compile_times)
 export MAKEFLAGS="-j$(nproc)"
+
+# community/vivid
+export LS_COLORS="$(vivid generate snazzy)"

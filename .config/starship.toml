@@ -1,44 +1,44 @@
-format = """
-$username\
-$hostname\
-$shlvl\
-$kubernetes\
-$directory\
-$git_branch\
-$git_commit\
-$git_state\
-$git_metrics\
-$git_status\
-$docker_context\
-$cmake\
-$deno\
-$dotnet\
-$golang\
-$helm\
-$java\
-$kotlin\
-$nodejs\
-$python\
-$ruby\
-$rust\
-$scala\
-$vagrant\
-$memory_usage\
-$env_var\
-$custom\
-$sudo\
-$cmd_duration\
-$line_break\
-$jobs\
-$time\
-$status\
-$shell\
-$character"""
+# format = """
+# $username\
+# $hostname\
+# $shlvl\
+# $kubernetes\
+# $directory\
+# $git_branch\
+# $git_commit\
+# $git_state\
+# $git_metrics\
+# $git_status\
+# $docker_context\
+# $cmake\
+# $deno\
+# $dotnet\
+# $golang\
+# $helm\
+# $java\
+# $kotlin\
+# $nodejs\
+# $python\
+# $ruby\
+# $rust\
+# $scala\
+# $vagrant\
+# $memory_usage\
+# $env_var\
+# $custom\
+# $sudo\
+# $cmd_duration\
+# $line_break\
+# $jobs\
+# $time\
+# $status\
+# $shell\
+# $character"""
 
-[dotnet]
-format="via [$symbol($version) \\($tfm\\)]($style) "
+# [dotnet]
+# format="via [$symbol($version) \\($tfm\\)]($style) "
 
-[nodejs]
-detect_extensions=[]
-[python]
-detect_extensions=[]
+# [nodejs]
+# detect_extensions=[]
+# [python]
+# detect_extensions=[]

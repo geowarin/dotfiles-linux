@@ -21,10 +21,6 @@ alias lt="l -s time"
 
 alias grep="grep --color=auto"
 
-if command -v hub >/dev/null 2>&1; then
-	alias git="hub"
-fi
-
 if command -v bat >/dev/null 2>&1; then
 	alias cat="bat"
 fi

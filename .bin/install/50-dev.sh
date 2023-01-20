@@ -3,4 +3,5 @@
 paru -S \
 jetbrains-toolbox \
 tealdeer \
+github-cli \
 tokei

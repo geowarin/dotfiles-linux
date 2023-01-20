@@ -15,10 +15,11 @@ kitty \
 zsh \
 fzf \
 starship \
+vivid \
 zplug \
 lsd \
 bat \
-hub \
+github-cli \
 fd \
 grep \
 ripgrep \

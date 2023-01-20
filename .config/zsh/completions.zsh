@@ -73,4 +73,4 @@ zstyle ':completion:*' keep-prefix true
 zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 
 # bat completions seem broken for middle of word complete...
-compdef cat=bat
+# compdef cat=bat
