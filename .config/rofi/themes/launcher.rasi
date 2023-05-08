@@ -7,9 +7,9 @@ configuration {
   application-fallback-icon: "preferences-other";
   drun-match-fields: "name,generic,categories";
   // drun-categories: "Graphics";
-  matching: "fuzzy";
-  sort: true;
-  sorting-method: "fzf";
+  //matching: "fuzzy";
+  //sort: false;
+  //sorting-method: "fzf";
   // hover-select: true;
   me-select-entry: "";
   me-accept-entry: "MousePrimary";

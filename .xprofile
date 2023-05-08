@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #nvidia-settings --load-config-only
-#export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_QPA_PLATFORMTHEME=qt5ct
 # For flatpaks - requires org.gtk.Gtk3theme.Arc-Dark
 # sudo flatpak override --env=GTK_THEME=Adwaita-dark
 # export GTK_THEME="Arc-Dark"

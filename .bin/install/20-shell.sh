@@ -4,7 +4,7 @@
 paru -S \
 noto-fonts \
 ttf-joypixels \
-nerd-fonts-jetbrains-mono
+ttf-jetbrains-mono-nerd
 # noto-fonts-emoji
 
 # Terminal

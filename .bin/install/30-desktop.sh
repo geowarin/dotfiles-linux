@@ -2,6 +2,7 @@
 
 paru -S \
 xdg-desktop-portal-gtk \
+perl-file-mimeinfo \
 signal-desktop \
 flatpak \
 firefox \

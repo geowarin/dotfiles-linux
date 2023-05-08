@@ -1,33 +1,25 @@
-# theme = "nord-dark"
-# icons = "awesome6"
-# icons = "material-nf"
-# icons_format = " <span stretch='ultraexpanded'>{icon}</span> "
 
 [theme]
-name = "nord-dark"
-# [theme.overrides]
-# idle_bg = "#123456"
-# idle_fg = "#abcdef"
+theme = "nord-dark"
 
 [icons]
-name = "awesome6"
-# [icons.overrides]
-# gpu = ""
+icons = "material-nf"
 
 [[block]]
 block = "focused_window"
-max_width = 100
-show_marks = "visible"
+format = " $title.str(max_w:100) | "
 
 [[block]]
 block = "pacman"
 interval = 600
-format = "{both} updates ({aur} aur )"
-format_singular = "{both} update"
-format_up_to_date = "up to date"
+format = " $icon $both updates ($aur aur ) "
+format_singular = " $icon $both update "
+format_up_to_date = " $icon up to date "
 critical_updates_regex = "(linux|linux-lts|linux-zen)"
 aur_command = "paru -Qua"
-on_click = "~/.config/rofi/bin/updates.sh"
+[[block.click]]
+button = "left"
+cmd = "~/.config/rofi/bin/updates.sh"
 
 # [[block]]
 # block = "temperature"
@@ -48,9 +40,11 @@ on_click = "~/.config/rofi/bin/updates.sh"
 
 [[block]]
 block = "github"
-format = "{total}"
-on_click = "firefox https://github.com/notifications"
+format = " $icon $total "
 if_command = "env | grep I3RS_GITHUB_TOKEN"
+[[block.click]]
+button = "left"
+cmd = "firefox https://github.com/notifications"
 
 [[block]]
 block = "keyboard_layout"
@@ -61,19 +55,22 @@ driver = "setxkbmap"
 [[block]]
 block = "time"
 interval = 5
-format = "%a %d/%m %R"
-on_click = "gsimplecal"
+format = "$icon $timestamp.datetime(f:'%a %d/%m %R')"
+[[block.click]]
+button = "left"
+cmd = "gsimplecal"
 
 [[block]]
 block = "sound"
 # driver = "pulseaudio"
 # format = "{output_name} {volume}"
-format = "{volume}"
-[block.mappings]
-"alsa_output.pci-0000_00_1f.3.analog-stereo" = ""
-"alsa_output.pci-0000_01_00.1.hdmi-stereo" = ""
-"bluez_output.04_52_C7_7E_46_4C.a2dp-sink" = ""
-"bluez_output.20_21_08_11_39_3B.headset-head-unit" = ""
+# format = "$icon $volume"
+headphones_indicator = true
+# [block.mappings]
+# "alsa_output.pci-0000_00_1f.3.analog-stereo" = ""
+# "alsa_output.pci-0000_01_00.1.hdmi-stereo" = ""
+# "bluez_output.04_52_C7_7E_46_4C.a2dp-sink" = ""
+# "bluez_output.20_21_08_11_39_3B.headset-head-unit" = ""
 
 [[block]]
 block = "notify"

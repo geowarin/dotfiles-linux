@@ -1,4 +1,5 @@
-source /usr/share/zsh/scripts/zplug/init.zsh
+# source /usr/share/zsh/scripts/zplug/init.zsh
+source ~/.zplug/init.zsh
 
 if ! zplug check; then
     zplug install
