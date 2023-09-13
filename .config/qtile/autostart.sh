@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-~/.screenlayout/home.sh &
+# ~/.screenlayout/home.sh &
 gnome-keyring-daemon --start &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 # exec --no-startup-id greenclip daemon
